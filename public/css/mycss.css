@@ -1,0 +1,36 @@
+
+div.nameSite{
+	color: black;
+	text-align: center;
+	text-shadow: 5px 5px 5px gray;
+	/*border-style: inset;
+	border-color: gray;
+	border-width: 10px;
+	background-color: white;
+	position: absolute;
+	top : 25%;*/
+}
+
+span.searchBut{
+	background-image: url("../images/search.png");
+}
+
+div.myheader{
+	box-shadow: 10px 5px 5px gray;
+	
+}
+
+div.myfooter{
+	box-shadow: 10px 5px 5px gray;
+
+}
+
+button.mybut{
+	width: 100%;
+	box-shadow: 10px 5px 5px gray;
+}
+
+img.imgSearch{
+	width : 20%;
+
+}

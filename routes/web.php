@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', 'retrieveControllerAccounts@index');
-Route::post('create', 'UpdateDBController@index');
-?>
+Route::get('/', function () {
+    return view('welcome');
+});
+/*Route::get('/research/{param}', function ($param) {
+	echo $param;    
+});*/
 
+Route::get('/research/{param}', 'ResearchByCityController@index');
+//Route::post('create', 'UpdateDBController@index');
 
 Auth::routes();
 
