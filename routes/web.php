@@ -15,3 +15,7 @@ Route::get('/', 'retrieveControllerAccounts@index');
 Route::post('create', 'UpdateDBController@index');
 ?>
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
