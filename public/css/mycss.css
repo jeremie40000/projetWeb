@@ -34,3 +34,28 @@ img.imgSearch{
 	width : 20%;
 
 }
+
+button.mysearchlist{
+	color:black;
+	margin: 1%;
+	margin-left: 20%;
+	margin-right: 20%;
+	border-style: ridge;
+	background-color: #e4e8e8;
+	border-width: 5px;
+	box-shadow: 5px 5px 5px gray;
+	font-size: 120%;
+}
+
+span.mybadgename{
+	font-size: 200%;
+	margin-bottom: 10%;
+	border-radius: 15px;
+	border-width: 5px;
+	border-style: inline;
+}
+
+span.mybadgesearch{
+	align-self: center;
+	font-size: 150%;
+}

@@ -18,6 +18,8 @@ Route::get('/', function () {
 	echo $param;    
 });*/
 
+Route::get('/shop/{siret}', 'ShopInfoController@index');
+
 Route::get('/research/{param}', 'ResearchByCityController@index');
 //Route::post('create', 'UpdateDBController@index');
 

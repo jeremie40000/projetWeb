@@ -10,8 +10,6 @@ class ResearchByCityController extends Controller
     public function index($param){
     	$req = "select * from shop where city='$param'";
     	$shops = DB::select($req);
-    	foreach ($shops as $shop) {
-    		echo $shop->name;
-    	}
+    	return view('research', ["shops"=>$shops]);
     }
 }

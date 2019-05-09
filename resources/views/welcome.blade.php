@@ -8,7 +8,7 @@
 
 @section('contentWelcome')
 <header>
-    <div class="container-fluid myheader">
+    <div class="container-fluid myheader page-header">
     <div class="row">
         <div class="col-md-8 text-left">
             <a>Polytech IG3</a>
