@@ -15,11 +15,26 @@ div.myheader{
 	box-shadow: 10px 5px 5px gray;
 	padding-bottom: 1%;
 	margin-bottom: 2.5%;
+	background-color: white;
 }
 
 div.myfooter{
 	box-shadow: 10px 5px 5px gray;
+	background-color: white;
+}
 
+body{
+	background-color: #F0F0F0;
+}
+
+.homebut{
+	background:url('/images/homebutton.png');
+	width: 35%;
+	height: 100%;
+	background-size:100% 100%;
+	position: absolute;
+	margin-top: 3%;
+	opacity: 0.5;
 }
 
 .mybut{

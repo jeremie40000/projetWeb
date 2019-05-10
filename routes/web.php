@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/shop/{siret}', 'ShopInfoController@index');
 
 Route::get('/researchCity/{param}', 'ResearchByCityController@index');

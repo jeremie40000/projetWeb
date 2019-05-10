@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<footer class="page-footer font-small fixed-bottom">
+<div class="myfooter font-small fixed-bottom">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2018 Copyright:
@@ -33,7 +33,7 @@
   </div>
   <!-- Copyright -->
 
-</footer>
+</div>
 
 <script type="text/javascript">
     function processDataByCity(){

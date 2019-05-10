@@ -20,31 +20,29 @@
         <header>
             <div class="container-fluid myheader">
                 <div class="row">
-                    @guest
-                        <div class="col-md-8 text-left">
-                    @else
-                        <div class="col-md-6 text-left">
-                    @endif
-                            <a>TrouveTonResto</a>
-                        </div>
-                        <div class="col-md-2 text-right">
+                    <div class="col-md-2 text-left">
+                        <h1 style="position:absolute;padding:6%;font-size: 200%;">TrouveTonResto</h1>
+                    </div>
+                    <div class="col-md-2 text-left">
+                        <a class="homebut" href="{{url('/')}}"></a>
+                    </div>
+                    <div class="offset-md-4 col-md-2 text-right">
+                        @auth
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary btn-lg mybut">Se deconnecter</button>
+                        </form>
+                        @else
                             <a class="btn btn-primary btn-lg mybut" type="button" href="{{ route('register') }}">S'inscrire</a>
-                        </div>
-                        <div class="col-md-2 text-right">
-                            @guest
-                                <a class="btn btn-primary btn-lg mybut" type="button" href="{{ route('login') }}">Se connecter</a>
-                            @else
-                                <a class="btn btn-primary btn-lg mybut" type="button" href="{{ route('login') }}">Mon compte</a>
-                            @endif
-                        </div>
-                            @auth
-                                <div class="col-md-2 text-right">
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-primary btn-lg mybut">Se deconnecter</a>
-                                    </form>
-                                </div>
-                            @endauth
+                        @endif
+                    </div>
+                    <div class="col-md-2 text-right">
+                        @guest
+                            <a class="btn btn-primary btn-lg mybut" type="button" href="{{ route('login') }}">Se connecter</a>
+                        @else
+                            <a class="btn btn-primary btn-lg mybut" type="button" href="{{ route('login') }}">Mon compte</a>
+                        @endif
+                    </div>
                 </div>
             </div>    
         </header>
