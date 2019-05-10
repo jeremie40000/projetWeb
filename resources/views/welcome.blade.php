@@ -3,28 +3,13 @@
 @section('titleWelcome')
 <title>TrouveTonResto</title>
 <link href="/css/bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/mycss.css">
+<link rel="stylesheet" type="text/css" href="/css/mycss.css">
 @endsection
 
 @section('contentWelcome')
-<header>
-    <div class="container-fluid myheader page-header">
-    <div class="row">
-        <div class="col-md-8 text-left">
-            <a>Polytech IG3</a>
-        </div>
-        <div class="col-md-2 text-right">
-            <button class="btn btn-primary btn-lg mybut">S'inscrire</button>
-        </div>
-        <div class="col-md-2 text-right">
-            <button class="btn btn-primary btn-lg mybut">Se connecter</button>
-        </div>
-    </div>
-</div>    
-</header>
 
 
-<div class="container-fluid" style="margin-top: 10%;">
+<div class="container-fluid">
     <div class="row">
         <div class="offset-md-4 col-md-4 shadow-lg p-3 mb-5 bg-white rounded nameSite">
             <h1>TrouveTonResto</h1>
@@ -52,13 +37,14 @@
 
 <script type="text/javascript">
     function processDataByCity(){
-        
         var city = document.getElementById("inputCity").value;
-        var uri = "/research/".concat(city);
+        var uri = "/researchCity/".concat(city);
         window.location.replace(uri);
     }
     function processDataByName(){
-        alert(document.getElementById("inputName").value);
+        var name =document.getElementById("inputName").value;
+        var uri = "/researchName/".concat(name);
+        window.location.replace(uri);
     }
 </script>
 @endsection

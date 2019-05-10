@@ -14,13 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-/*Route::get('/research/{param}', function ($param) {
-	echo $param;    
-});*/
 
 Route::get('/shop/{siret}', 'ShopInfoController@index');
 
-Route::get('/research/{param}', 'ResearchByCityController@index');
+Route::get('/researchCity/{param}', 'ResearchByCityController@index');
+Route::get('/researchName/{param}', 'ResearchByNameController@index');
+Route::get('/dish/{param}', 'DishController@index');
 //Route::post('create', 'UpdateDBController@index');
 
 Auth::routes();

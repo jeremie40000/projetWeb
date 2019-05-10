@@ -7,33 +7,42 @@
 @endsection
 
 @section('contentWelcome')
-<ul class="list-group"  style="margin-bottom: 10%;">
+<?php
+      if(count($shops)==0){
+        echo "<script>alert(\"Aucun restaurant de ce nom\")</script>";
+        //renvoyer vers la page d'accueil
+      }
+      else{ ?>
+        <ul class="list-group"  style="margin-bottom: 10%;">
   <span class="badge badge-secondary mybadgesearch">Liste des restaurants pour <?php echo $shops[0]->city;?></span>
   <?php foreach ($shops as $shop) { ?>
-  	<button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist" > 
-  		<div class="container">
-  			<div class="row">
-  				<div class="col-md-4">
-  					<img src="/images/profile{{$shop->profilepicture}}.jpeg">
-  				</div>
-  				<div class="col-md-8 ">
-  					<div class="row">
-  						<div class="col text-right">
-  							<span class="badge badge-primary mybadgename"> <?php echo $shop->name;?></span>
-  						</div>
-  					</div>
-  					<div class="row right">
-  						<div class="col text-right">
-  							<?php echo $shop->addr;?> 
-  						</div>
-  					</div>
-  				</div>
-  			</div>
-  		</div>
-  		
-  	</button> 
+    <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist" > 
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="/images/profile{{$shop->profilepicture}}.jpeg">
+          </div>
+          <div class="col-md-8 ">
+            <div class="row">
+              <div class="col text-right">
+                <span class="badge badge-primary mybadgename"> <?php echo $shop->name;?></span>
+              </div>
+            </div>
+            <div class="row right">
+              <div class="col text-right">
+                <?php echo $shop->addr;?> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </button> 
   <?php } ?>
 </ul>
+
+      <?php } ?>
+
 
 <script type="text/javascript">
 	function red(id){

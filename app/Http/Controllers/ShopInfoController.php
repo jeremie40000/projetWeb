@@ -9,7 +9,12 @@ class ShopInfoController extends Controller
 {
     public function index($param){
     	$s = DB::select("select * from shop where siret='$param'");
-    	var_dump($s[0]);
+    	$d = DB::select("select * from dish where idmenu IN (select idm from menu where idshop='$param')");
+    	$i = DB::select("(select * from image where ids='$param')");
+    	$m = DB::select("select * from menu where idshop='$param'");
+    	
+    	//var_dump($s[0]);
     	//echo ''.$s->name.' '.$s->city.' '.$s->siret;
+    	return view('shop', ['paramShop'=>$s[0], 'paramImages'=>$i, 'paramMenus'=>$m, 'paramDishes'=>$d]);
     }
 }

@@ -3,12 +3,8 @@ div.nameSite{
 	color: black;
 	text-align: center;
 	text-shadow: 5px 5px 5px gray;
-	/*border-style: inset;
-	border-color: gray;
-	border-width: 10px;
-	background-color: white;
-	position: absolute;
-	top : 25%;*/
+	margin-top: 1%;
+	
 }
 
 span.searchBut{
@@ -17,7 +13,8 @@ span.searchBut{
 
 div.myheader{
 	box-shadow: 10px 5px 5px gray;
-	
+	padding-bottom: 1%;
+	margin-bottom: 2.5%;
 }
 
 div.myfooter{
@@ -25,9 +22,10 @@ div.myfooter{
 
 }
 
-button.mybut{
+.mybut{
 	width: 100%;
 	box-shadow: 10px 5px 5px gray;
+	margin-top: 5%;
 }
 
 img.imgSearch{
@@ -47,6 +45,23 @@ button.mysearchlist{
 	font-size: 120%;
 }
 
+button.mymenulist{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	border-style: ridge;
+	border-width: 5px;
+	background-color: #e4e8e8;
+	box-shadow: 5px 5px 5px gray;
+
+}
+
+a.mydishlink{
+	margin:1%;
+	color : black;
+	text-align: right;
+	background-color: #33a68b;
+}
+
 span.mybadgename{
 	font-size: 200%;
 	margin-bottom: 10%;
@@ -58,4 +73,70 @@ span.mybadgename{
 span.mybadgesearch{
 	align-self: center;
 	font-size: 150%;
+}
+
+div.mycarouselshop{
+}
+
+.multi-item-carousel{
+  .carousel-inner{
+    > .item{
+      transition: 500ms ease-in-out left;
+    }
+    .active{
+      &.left{
+        left:-33%;
+      }
+      &.right{
+        left:33%;
+      }
+    }
+    .next{
+      left: 33%;
+    }
+    .prev{
+      left: -33%;
+    }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      > .item{
+        // use your favourite prefixer here
+        transition: 500ms ease-in-out left;
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+  .carouse-control{
+    &.left, &.right{
+      background-image: none;
+    }
+  }
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  z-index: 3;
+  opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  z-index: 2;
+  opacity: 0;
+  transition: 0s 0.6s opacity;
+}
+
+div.myDishDetails{
+display: none;
+position: absolute;
+z-index:10;	
+background-color: white;
+border-width: 1px;
+border-style: solid;
+margin-top: -3%;
+margin-left: -1.5%;
+width:60%;
+
 }
