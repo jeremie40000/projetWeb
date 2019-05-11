@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'merchant',
     ],
 
     /*
@@ -62,7 +62,11 @@ return [
     | be assigned to any extra authentication guards you have defined.
     |
     | Supported: "database", "eloquent"
-    |
+    |  public function getRememberToken ()
+        {
+            return $this->RememberToken;
+    
+        }
     */
 
     'providers' => [
