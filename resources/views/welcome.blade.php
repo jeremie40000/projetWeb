@@ -25,15 +25,7 @@
     </div>
 </div>
 
-<div class="myfooter font-small fixed-bottom">
 
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2018 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-
-</div>
 
 <script type="text/javascript">
     function processDataByCity(){

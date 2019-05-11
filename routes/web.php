@@ -21,6 +21,11 @@ Route::get('/shop/{siret}', 'ShopInfoController@index');
 Route::get('/researchCity/{param}', 'ResearchByCityController@index');
 Route::get('/researchName/{param}', 'ResearchByNameController@index');
 Route::get('/dish/{param}', 'DishController@index');
+Route::get('/myAccount', 'MyAccountController@index');
+Route::post('/uploadprofilepicture', 'UploadProfilePictureController@index');
+Route::post('/updateAccount', 'UpdateAccountController@index');
+Route::get('/modifyPersInfo', 'ModifyPersInfoController@index');
+Route::get('/addShop', 'AddShopController@index');
 //Route::post('create', 'UpdateDBController@index');
 
 Auth::routes();

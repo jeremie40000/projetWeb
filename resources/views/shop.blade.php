@@ -10,12 +10,12 @@
 @section('contentWelcome')
 
 <div class="container">
-  
+
   <div class="row">
     <div class="col-md-12">
       <div class="carousel slide multi-item-carousel" id="theCarousel">
         <div class="carousel-inner">
-          <?php 
+          <?php
           if(count($paramImages)>0){
             echo '<div class="item active">
             <div class="col-xs-4"><a href="#1"><img src="'.$paramImages[0]->src.'" class="img-responsive"></a></div>
@@ -24,11 +24,11 @@
             echo '<div class="item ">
             <div class="col-xs-4"><a href="#1"><img src="'.$paramImages[$i]->src.'" class="img-responsive"></a></div>
           </div>';
-            } 
+            }
           }
           ?>
-          
-          
+
+
           <!--  Example item end -->
         </div>
         <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
@@ -40,12 +40,12 @@
   <div class="row">
     <h1 class="text-center bg-success"><dt>{{$paramShop->name}}</dt></h1>
   </div>
-  
+
   <div class="row">
-    
+
     <ul class="list-group"  style="margin-bottom: 10%;">
       <?php foreach ($paramMenus as $menu) { ?>
-        <button class="list-group-item btn mymenulist"  > 
+        <button class="list-group-item btn mymenulist"  >
           <div class="container myDishDetails" id="dishDetails{{$menu->idm}}" >
                       <div class="row">
                           <div class="col-md-4">
@@ -67,7 +67,7 @@
           </div>
           <div class="container">
             <div class="row">
-              <h1 class="text-center">{{$menu->name}}</h1>      
+              <h1 class="text-center">{{$menu->name}}</h1>
             </div>
             <div class="row">
               <div class="col-md-4">
@@ -78,10 +78,10 @@
                   <ul>
                       @foreach($paramDishes as $dish)
                         @if($dish->idmenu == $menu->idm AND $dish->type==0)
-                          <li><a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a></li>  
+                          <li><a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a></li>
                         @endif
                       @endforeach
-                  </ul>    
+                  </ul>
                 </div>
               </div>
               <div class="col-md-4">
@@ -92,10 +92,10 @@
                   <ul>
                     @foreach($paramDishes as $dish)
                         @if($dish->idmenu == $menu->idm AND $dish->type==1)
-                          <li><a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a></li>  
+                          <li><a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a></li>
                         @endif
                       @endforeach
-                  </ul>    
+                  </ul>
                 </div>
               </div>
               <div class="col-md-4">
@@ -106,20 +106,20 @@
                   <ul>
                     @foreach($paramDishes as $dish)
                         @if($dish->idmenu == $menu->idm AND $dish->type==2)
-                          <li><a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a></li>  
+                          <li><a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a></li>
                         @endif
                       @endforeach
-                  </ul>    
+                  </ul>
                 </div>
               </div>
-              
-            </div>  
+
+            </div>
           </div>
-        </button> 
+        </button>
       <?php } ?>
     </ul>
   </div>
-      
+
 </div>
 event.clientY
 <script type="text/javascript">
@@ -136,7 +136,7 @@ $('.multi-item-carousel .item').each(function(){
     next = $(this).siblings(':first');
   }
   next.children(':first-child').clone().appendTo($(this));
-  
+
   if (next.next().length>0) {
     next.next().children(':first-child').clone().appendTo($(this));
   } else {
@@ -147,11 +147,11 @@ $('.multi-item-carousel .item').each(function(){
 function displayDish(id, name, price, imgs){
   var s = "dishDetails".concat(id);
   var d = document.getElementById(s);
-  
+
   d.style.display="inline";
   document.getElementById(s.concat('/h1')).innerHTML = name;
   document.getElementById(s.concat('/h2')).innerHTML = "Prix a la carte : ".concat(price);
-  
+
   document.getElementById(s.concat('/img')).src = imgs;
 
 }
@@ -160,5 +160,5 @@ function hideDish(id){
   document.getElementById(s).style.display="none";
 }
 </script>
-  
+
 @endsection

@@ -15,8 +15,8 @@
       else{ ?>
         <ul class="list-group"  style="margin-bottom: 10%;">
   <span class="badge badge-secondary mybadgesearch">Liste des restaurants pour <?php echo $shops[0]->city;?></span>
-  <?php foreach ($shops as $shop) { ?>
-    <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist" > 
+  @foreach ($shops as $shop)
+    <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist" >
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -30,15 +30,15 @@
             </div>
             <div class="row right">
               <div class="col text-right">
-                <?php echo $shop->addr;?> 
+                <?php echo $shop->addr;?>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-    </button> 
-  <?php } ?>
+
+    </button>
+  @endforeach
 </ul>
 
       <?php } ?>
