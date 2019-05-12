@@ -65,6 +65,7 @@ button.mysearchlist{
 	margin-bottom: 2%;
 	border-style: ridge;
 	border-width: 5px;
+	
 	background-color: #e4e8e8;
 	box-shadow: 5px 5px 5px gray;
 
@@ -91,7 +92,12 @@ span.mybadgesearch{
 	font-size: 150%;
 }
 
-
+.carousel-item > div {
+  float: left;
+}
+.carousel-by-item [class*="cloneditem-"] {
+  display: none;
+}
 
 div.myDishDetails{
 display: none;

@@ -26,8 +26,11 @@ Route::post('/uploadprofilepicture', 'UploadProfilePictureController@index');
 Route::post('/newShop', 'NewShopController@index');
 Route::post('/addimageshop/{param}', 'AddImageController@index');
 Route::post('/updateAccount', 'UpdateAccountController@index');
+Route::post('/addmenu/{param}', 'AddMenuController@index');
 Route::get('/modifyPersInfo', 'ModifyPersInfoController@index');
 Route::get('/addShop', 'AddShopController@index');
+Route::get('/setMenu/{param}', 'SetMenuController@index');
+Route::post('/recordDish/{param}', 'RecordDishController@index');
 //Route::post('create', 'UpdateDBController@index');
 
 Auth::routes();
