@@ -11,7 +11,7 @@
 <div class="container mypersinfoform">
   <div class="row">
     <div class="col-md-10  text-right">
-      <form method="post" action="{{url('/updateAccount')}}">
+      <form method="post" action="{{url('/newShop')}}"  enctype="multipart/form-data">
         @csrf
         <!--Siret Field-->
         <div class="row">
@@ -97,20 +97,17 @@
               <div class="col-md-4">
                 <h3>Etat : </h3>
               </div>
-              <div class="col-md-8">
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="inputOpeningState" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Etat
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="inputOpeningState">
-                    <a class="dropdown-item" href="#">Ouvert</a>
-                    <a class="dropdown-item" href="#">Fermé</a>
-                  </div>
-                </div>
+              <div class="offset-md-5 col-md-3">
+                <select class="custom-select" id="inputState">
+                  <option selected>Choisir...</option>
+                  <option value="1">Ouvert</option>
+                  <option value="2">Ferme</option>
+                </select>
               </div>
             </div>
           </div>
       </div>
+
       <!--Profile Picture Field-->
       <div class="row">
           <div class="col-md-12">

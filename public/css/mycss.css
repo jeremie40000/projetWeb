@@ -90,58 +90,7 @@ span.mybadgesearch{
 	font-size: 150%;
 }
 
-div.mycarouselshop{
-}
 
-.multi-item-carousel{
-  .carousel-inner{
-    > .item{
-      transition: 500ms ease-in-out left;
-    }
-    .active{
-      &.left{
-        left:-33%;
-      }
-      &.right{
-        left:33%;
-      }
-    }
-    .next{
-      left: 33%;
-    }
-    .prev{
-      left: -33%;
-    }
-    @media all and (transform-3d), (-webkit-transform-3d) {
-      > .item{
-        // use your favourite prefixer here
-        transition: 500ms ease-in-out left;
-        transition: 500ms ease-in-out all;
-        backface-visibility: visible;
-        transform: none!important;
-      }
-    }
-  }
-  .carouse-control{
-    &.left, &.right{
-      background-image: none;
-    }
-  }
-}
-
-.carousel-fade .carousel-item.active,
-.carousel-fade .carousel-item-next.carousel-item-left,
-.carousel-fade .carousel-item-prev.carousel-item-right {
-  z-index: 3;
-  opacity: 1;
-}
-
-.carousel-fade .active.carousel-item-left,
-.carousel-fade .active.carousel-item-right {
-  z-index: 2;
-  opacity: 0;
-  transition: 0s 0.6s opacity;
-}
 
 div.myDishDetails{
 display: none;
@@ -151,7 +100,7 @@ background-color: white;
 border-width: 1px;
 border-style: solid;
 margin-top: -3%;
-margin-left: -1.5%;
+margin-left: -50%;
 width:60%;
 
 }
@@ -162,7 +111,7 @@ div.mypersinfoform{
 	border-width: 3px;
 	border-style: ridge;
 	padding: 5%;
-	
+
 	background-color: white;
 	max-height: 100%;
 	max-width: 80%;

@@ -39,4 +39,5 @@
         window.location.replace(uri);
     }
 </script>
+<script src="/js/bootstrap.js"></script>
 @endsection

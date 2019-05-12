@@ -23,6 +23,8 @@ Route::get('/researchName/{param}', 'ResearchByNameController@index');
 Route::get('/dish/{param}', 'DishController@index');
 Route::get('/myAccount', 'MyAccountController@index');
 Route::post('/uploadprofilepicture', 'UploadProfilePictureController@index');
+Route::post('/newShop', 'NewShopController@index');
+Route::post('/addimageshop', 'AddImageShop@index');
 Route::post('/updateAccount', 'UpdateAccountController@index');
 Route::get('/modifyPersInfo', 'ModifyPersInfoController@index');
 Route::get('/addShop', 'AddShopController@index');

@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class AddShopController extends Controller
 {
     public function index (){
-      return view("addShop");
+       	 return view('addShop');
     }
 }

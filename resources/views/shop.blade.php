@@ -2,47 +2,62 @@
 
 @section('titleWelcome')
 <title>TrouveTonResto</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link href="/css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/mycss.css">
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link href="/css/glider.min.css" rel="stylesheet">
 @endsection
 
 @section('contentWelcome')
 
-<div class="container">
 
+<div class="container text-center" style="max-width:60%;">
   <div class="row">
-    <div class="col-md-12">
-      <div class="carousel slide multi-item-carousel" id="theCarousel">
-        <div class="carousel-inner">
-          <?php
-          if(count($paramImages)>0){
-            echo '<div class="item active">
-            <div class="col-xs-4"><a href="#1"><img src="'.$paramImages[0]->src.'" class="img-responsive"></a></div>
-          </div>';
-            for ($i = 1; $i < count($paramImages); $i++){
-            echo '<div class="item ">
-            <div class="col-xs-4"><a href="#1"><img src="'.$paramImages[$i]->src.'" class="img-responsive"></a></div>
-          </div>';
-            }
-          }
-          ?>
-
-
-          <!--  Example item end -->
-        </div>
-        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+    <div class="col-md-12 text-center" style="margin-top:2%;max-width:70%;margin-left:15%;margin-right:15%;">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+          @if(count($paramImages)>0)
+            <div class="carousel-item active">
+              <div class="col-xs-4"><a href="#1"><img src="{{$paramImages[0]->src}}" class="img-responsive"></a></div>
+            </div>';
+            @for ($i = 1; $i < count($paramImages); $i++)
+            <div class="carousel-item ">
+              <div class="col-xs-4"><a href="#1"><img src="{{$paramImages[$i]->src}}" class="img-responsive"></a></div>
+            </div>
+            @endfor
+          @endif
       </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
     </div>
   </div>
-
+  @Auth
+  @if(Auth::id()==$paramShop->idm)
   <div class="row">
-    <h1 class="text-center bg-success"><dt>{{$paramShop->name}}</dt></h1>
+      <div class="col-md-12 text-center" style="margin-top:2%;">
+        <form action="{{url('/addimageshop')}}" method="post" enctype="multipart/form-data">
+          @csrf
+          <input name ="addimage" id="addimage" type="file" class="btn btn-primary" onchange="form.submit()"></input>
+        </form>
+      </div>
+  </div>
+  @endif
+  @endauth
+  <div class="row">
+      <div class="col-md-12 text-center" style="margin-top:2%;">
+        <h1 class="">{{$paramShop->name}}</h1>
+      </div>
   </div>
 
   <div class="row">
-
+    <div class="col-md-12 text-center">
     <ul class="list-group"  style="margin-bottom: 10%;">
       <?php foreach ($paramMenus as $menu) { ?>
         <button class="list-group-item btn mymenulist"  >
@@ -119,46 +134,67 @@
       <?php } ?>
     </ul>
   </div>
+  </div>
 
 </div>
-event.clientY
+
 <script type="text/javascript">
-  // Instantiate the Bootstrap carousel
-$('.multi-item-carousel').carousel({
-  interval: false
-});
 
-// for every slide in carousel, copy the next slide's item in the slide.
-// Do the same for the next, next item.
-$('.multi-item-carousel .item').each(function(){
-  var next = $(this).next();
-  if (!next.length) {
-    next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
 
-  if (next.next().length>0) {
-    next.next().children(':first-child').clone().appendTo($(this));
-  } else {
-    $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+  new Glider(document.querySelector('.glider'), {
+  slidesToScroll: 1,
+  slidesToShow: 5.5,
+  draggable: true,
+  dots: '.dots',
+  arrows: {
+    prev: '.glider-prev',
+    next: '.glider-next'
   }
+})
+
+
+$('#carouselExample').on('slide.bs.carousel', function (e) {
+
+
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 3;
+    var totalItems = $('.carousel-item').length;
+
+    if (idx >= totalItems-(itemsPerSlide-1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i=0; i<it; i++) {
+            // append slides to end
+            if (e.direction=="left") {
+                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+            }
+            else {
+                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+            }
+        }
+    }
+    for (var i=0; i<$('.carousel-item').length; i++) {
+      $('.carousel-item')[i].style.display="visible";
+    }
 });
+$('#carouselExample').on('slid.bs.carousel', function (e) {
+  for (var i=0; i<$('.carousel-item').length; i++) {
+    $('.carousel-item')[i].style.display="visible";
+  }
+}
 
 function displayDish(id, name, price, imgs){
   var s = "dishDetails".concat(id);
   var d = document.getElementById(s);
-
   d.style.display="inline";
   document.getElementById(s.concat('/h1')).innerHTML = name;
   document.getElementById(s.concat('/h2')).innerHTML = "Prix a la carte : ".concat(price);
-
   document.getElementById(s.concat('/img')).src = imgs;
-
 }
 function hideDish(id){
   var s = "dishDetails".concat(id);
   document.getElementById(s).style.display="none";
 }
 </script>
-
+<script src="/js/glider.min.js"></script>
 @endsection

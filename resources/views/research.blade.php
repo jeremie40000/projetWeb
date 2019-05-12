@@ -20,7 +20,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <img src="/images/profile{{$shop->profilepicture}}.jpeg">
+            <img src="{{$shop->profilepicture}}">
           </div>
           <div class="col-md-8 ">
             <div class="row">

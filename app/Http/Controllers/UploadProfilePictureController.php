@@ -23,6 +23,9 @@ class UploadProfilePictureController extends Controller
      /*if(File::exists($old_image_path)) {
           File::delete($old_image_path);
      }*/
-     return view('myAccount', ['user'=>Auth::user()]);
+     $user = Auth::user();
+     $req = "select * from shop where idm='$user->id'";
+   	 $shops = DB::select($req);
+   	 return view('myAccount', ['user'=>$user, 'shops'=>$shops]);
    }
 }
