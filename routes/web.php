@@ -30,6 +30,8 @@ Route::post('/addmenu/{param}', 'AddMenuController@index');
 Route::get('/modifyPersInfo', 'ModifyPersInfoController@index');
 Route::get('/addShop', 'AddShopController@index');
 Route::get('/setMenu/{param}', 'SetMenuController@index');
+Route::get('/deleteMenu/{param}', 'DeleteMenuController@index');
+Route::get('/deleteDish/{param}', 'DeleteDishController@index');
 Route::post('/recordDish/{param}', 'RecordDishController@index');
 //Route::post('create', 'UpdateDBController@index');
 

@@ -138,11 +138,11 @@
               </div>
               @Auth
               @if(Auth::id()==$paramShop->idm)
-                <div class="col-md-11 text-right" style="position:absolute;" >
+                <div class="offset-md-11 col-md-1 text-right" style="position:absolute;" >
                   <a href="{{url("/setMenu/$menu->idm")}}"><img src="/images/engrenage.png"></a>
                 </div>
-                <div class="col-md-12 text-right" style="position:absolute;" >
-                  <a href="{{url("/setMenu/$menu->idm")}}"><img src="/images/delete.png"></a>
+                <div class="col-md-1 text-left" style="position:absolute;" >
+                  <a href="{{url("/deleteMenu/$menu->idm")}}"><img src="/images/delete.png"></a>
                 </div>
               @endif
               @endauth
@@ -156,7 +156,10 @@
                   <ul>
                       @foreach($paramDishes as $dish)
                         @if($dish->idmenu == $menu->idm AND $dish->type==0)
-                          <li><a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a></li>
+                        <li>
+                          <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                            <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                        </li>
                         @endif
                       @endforeach
                   </ul>
@@ -170,7 +173,10 @@
                   <ul>
                     @foreach($paramDishes as $dish)
                         @if($dish->idmenu == $menu->idm AND $dish->type==1)
-                          <li><a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a></li>
+                        <li>
+                          <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                            <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                        </li>
                         @endif
                       @endforeach
                   </ul>
@@ -184,7 +190,10 @@
                   <ul>
                     @foreach($paramDishes as $dish)
                         @if($dish->idmenu == $menu->idm AND $dish->type==2)
-                          <li><a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a></li>
+                          <li>
+                            <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                              <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                          </li>
                         @endif
                       @endforeach
                   </ul>

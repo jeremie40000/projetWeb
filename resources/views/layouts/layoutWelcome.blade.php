@@ -25,12 +25,9 @@
             <div class="container-fluid myheader">
                 <div class="row">
                     <div class="col-md-2 text-left">
-                        <h1 style="position:absolute;padding:6%;font-size: 200%;">TrouveTonResto</h1>
+                        <a style="text-decoragtion:none;color:black;" href="/"><h1 style="position:absolute;padding:6%;font-size: 200%;">TrouveTonResto</h1></a>
                     </div>
-                    <div class="col-md-2 text-left">
-                        <a class="homebut" href="{{url('/')}}"></a>
-                    </div>
-                    <div class="offset-md-4 col-md-2 text-right">
+                    <div class="offset-md-6 col-md-2 text-right">
                         @auth
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf

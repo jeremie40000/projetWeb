@@ -1,6 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.layoutWelcome')
 
-@section('content')
+@section('titleWelcome')
+<title>TrouveTonResto</title>
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/mycss.css">
+@endsection
+
+@section('contentWelcome')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
