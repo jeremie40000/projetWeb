@@ -42,7 +42,7 @@
   @if(Auth::id()==$paramShop->idm)
   <div class="row">
       <div class="col-md-12 text-center" style="margin-top:2%;">
-        <form action="{{url('/addimageshop')}}" method="post" enctype="multipart/form-data">
+        <form action="{{url("/addimageshop/$paramShop->siret")}}" method="post" enctype="multipart/form-data">
           @csrf
           <input name ="addimage" id="addimage" type="file" class="btn btn-primary" onchange="form.submit()"></input>
         </form>
@@ -55,7 +55,40 @@
         <h1 class="">{{$paramShop->name}}</h1>
       </div>
   </div>
-
+  @Auth
+  @if(Auth::id()==$paramShop->idm)
+  <div class="btn mymenulist"  >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>Ajouter menu</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          Nom :
+        </div>
+        <div class="col-md-6">
+          Prix :
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+            <input type="text"></input>
+        </div>
+        <div class="col-md-6">
+            <input type="number"></input>
+        </div>
+      </div>
+      <div class="row" style="padding-top:5%;margin-bottom:-6%;">
+        <div class="col-md-12">
+          <button class="btn btn-primary" type="submit">Ajouter</button>
+        </div>
+      </div>
+    </div>
+  </button>
+  @endif
+  @endauth
   <div class="row">
     <div class="col-md-12 text-center">
     <ul class="list-group"  style="margin-bottom: 10%;">
@@ -140,53 +173,20 @@
 
 <script type="text/javascript">
 
+$("mydishlink").hover(
+    function(event) {
 
-  new Glider(document.querySelector('.glider'), {
-  slidesToScroll: 1,
-  slidesToShow: 5.5,
-  draggable: true,
-  dots: '.dots',
-  arrows: {
-    prev: '.glider-prev',
-    next: '.glider-next'
-  }
-})
-
-
-$('#carouselExample').on('slide.bs.carousel', function (e) {
-
-
-    var $e = $(e.relatedTarget);
-    var idx = $e.index();
-    var itemsPerSlide = 3;
-    var totalItems = $('.carousel-item').length;
-
-    if (idx >= totalItems-(itemsPerSlide-1)) {
-        var it = itemsPerSlide - (totalItems - idx);
-        for (var i=0; i<it; i++) {
-            // append slides to end
-            if (e.direction=="left") {
-                $('.carousel-item').eq(i).appendTo('.carousel-inner');
-            }
-            else {
-                $('.carousel-item').eq(0).appendTo('.carousel-inner');
-            }
-        }
+    },
+    function (event) {
+        // The mouse has left the element, can reference the element via 'this'
     }
-    for (var i=0; i<$('.carousel-item').length; i++) {
-      $('.carousel-item')[i].style.display="visible";
-    }
-});
-$('#carouselExample').on('slid.bs.carousel', function (e) {
-  for (var i=0; i<$('.carousel-item').length; i++) {
-    $('.carousel-item')[i].style.display="visible";
-  }
-}
+ );
 
 function displayDish(id, name, price, imgs){
   var s = "dishDetails".concat(id);
   var d = document.getElementById(s);
   d.style.display="inline";
+  
   document.getElementById(s.concat('/h1')).innerHTML = name;
   document.getElementById(s.concat('/h2')).innerHTML = "Prix a la carte : ".concat(price);
   document.getElementById(s.concat('/img')).src = imgs;

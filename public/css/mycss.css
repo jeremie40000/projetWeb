@@ -60,7 +60,7 @@ button.mysearchlist{
 	font-size: 120%;
 }
 
-button.mymenulist{
+.mymenulist{
 	margin-top: 2%;
 	margin-bottom: 2%;
 	border-style: ridge;
@@ -69,6 +69,7 @@ button.mymenulist{
 	box-shadow: 5px 5px 5px gray;
 
 }
+
 
 a.mydishlink{
 	margin:1%;
