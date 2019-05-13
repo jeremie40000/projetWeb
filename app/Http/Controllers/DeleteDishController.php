@@ -19,9 +19,10 @@ class DeleteDishController extends Controller
     $d = DB::select("select * from dish where idmenu IN (select idm from menu where idshop='$shop')");
     $i = DB::select("(select * from image where ids='$shop')");
     $m = DB::select("select * from menu where idshop='$shop'");
+    $h = DB::select("select * from openingschedule,openingtime where idshop='$shop' and idhours=idh");
 
     //var_dump($s[0]);
     //echo ''.$s->name.' '.$s->city.' '.$s->siret;
-    return view('shop', ['paramShop'=>$s[0], 'paramImages'=>$i, 'paramMenus'=>$m, 'paramDishes'=>$d]);
+    return view('shop', ['paramShop'=>$s[0], 'paramImages'=>$i, 'paramMenus'=>$m, 'paramDishes'=>$d, 'paramHours'=>$h]);
   }
 }

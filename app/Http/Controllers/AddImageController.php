@@ -19,6 +19,7 @@ class AddImageController extends Controller
       /*if(File::exists($old_image_path)) {
            File::delete($old_image_path);
       }*/
+      $h = DB::select("select * from openingschedule,openingtime where idshop='$param' and idhours=idh");
       $s = DB::select("select * from shop where siret='$param'");
     	$d = DB::select("select * from dish where idmenu IN (select idm from menu where idshop='$param')");
     	$i = DB::select("(select * from image where ids='$param')");
@@ -26,6 +27,6 @@ class AddImageController extends Controller
 
     	//var_dump($s[0]);
     	//echo ''.$s->name.' '.$s->city.' '.$s->siret;
-    	return view('shop', ['paramShop'=>$s[0], 'paramImages'=>$i, 'paramMenus'=>$m, 'paramDishes'=>$d]);
+    	return view('shop', ['paramShop'=>$s[0], 'paramImages'=>$i, 'paramMenus'=>$m, 'paramDishes'=>$d, 'paramHours'=>$h]);
     }
 }

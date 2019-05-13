@@ -27,11 +27,13 @@ Route::post('/newShop', 'NewShopController@index');
 Route::post('/addimageshop/{param}', 'AddImageController@index');
 Route::post('/updateAccount', 'UpdateAccountController@index');
 Route::post('/addmenu/{param}', 'AddMenuController@index');
+Route::post('/addHours/{param}', 'AddHoursController@index');
 Route::get('/modifyPersInfo', 'ModifyPersInfoController@index');
 Route::get('/addShop', 'AddShopController@index');
 Route::get('/setMenu/{param}', 'SetMenuController@index');
 Route::get('/deleteMenu/{param}', 'DeleteMenuController@index');
 Route::get('/deleteDish/{param}', 'DeleteDishController@index');
+Route::get('/deleteHours/{param}', 'DeleteHoursController@index');
 Route::post('/recordDish/{param}', 'RecordDishController@index');
 //Route::post('create', 'UpdateDBController@index');
 

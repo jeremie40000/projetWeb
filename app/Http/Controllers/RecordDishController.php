@@ -21,7 +21,7 @@ class RecordDishController extends Controller
       //$image_id = DB::table('image')->where('name',basename($_FILES['inputPicture']['tmp_name']))->first();
       //var_dump($image_id);
 
-      
+
       DB::table('dish')->insert(
         ['name'=>$req->input('inputName'), 'priceunit'=>$req->input('inputPrice'), 'type'=>$req->input('inputType'), 'idmenu'=>$param, 'srcimage'=>$image_path]
       );
@@ -31,9 +31,10 @@ class RecordDishController extends Controller
     	$d = DB::select("select * from dish where idmenu IN (select idm from menu where idshop='$siret')");
     	$i = DB::select("(select * from image where ids='$siret')");
     	$m = DB::select("select * from menu where idshop='$siret'");
+      $h = DB::select("select * from openingschedule,openingtime where idshop='$siret' and idhours=idh");
 
     	//var_dump($s[0]);
     	//echo ''.$s->name.' '.$s->city.' '.$s->siret;
-    	return view('shop', ['paramShop'=>$s[0], 'paramImages'=>$i, 'paramMenus'=>$m, 'paramDishes'=>$d]);
+    	return view('shop', ['paramShop'=>$s[0], 'paramImages'=>$i, 'paramMenus'=>$m, 'paramDishes'=>$d, 'paramHours'=>$h]);
     }
 }

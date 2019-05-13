@@ -23,6 +23,7 @@
                   <div class="col-4"><a href="#1"><img src="{{$paramImages[0]->src}}" class="img-responsive"></a></div>
                 </div>';
                 @for ($i = 1; $i < count($paramImages); $i++)
+                <?php echo count($paramImages) ?>
                 <div class="carousel-item ">
                   <div class="col-4"><a href="#1"><img src="{{$paramImages[$i]->src}}" class="img-responsive"></a></div>
                 </div>
@@ -65,8 +66,66 @@
         <h1 class="">{{$paramShop->name}}</h1>
       </div>
   </div>
+  @foreach($paramHours as $hours)
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4 class="">{{$hours->day}} : {{$hours->start}}h - {{$hours->end}}h</h4>
+    </div>
+    @Auth
+    @if(Auth::id()==$paramShop->idm)
+    <div class="col-md-1 text-right" style="position:absolute;" >
+      <a href="{{url("/deleteHours/$hours->idhours")}}"><img src="/images/delete.png"></a>
+    </div>
+    @endauth
+    @endif
+  </div>
+  @endforeach
   @Auth
   @if(Auth::id()==$paramShop->idm)
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="btn "  id="divHours" style="display: none;">
+      <div class="container myHoursDiv">
+        <form method="post" action="{{url("/addHours/$paramShop->siret")}}">
+          @csrf
+                    <div class="row">
+                        <div class="col-md-4">
+                          <select class="custom-select" name="inputDay">
+                            <option selected>Jour...</option>
+                            <option value="lundi">Lundi</option>
+                            <option value="mardi">Mardi</option>
+                            <option value="mercredi">Mercredi</option>
+                            <option value="jeudi">Jeudi</option>
+                            <option value="vendredi">Vendredi</option>
+                            <option value="samedi">Samedi</option>
+                            <option value="dimanche">Dimanche</option>
+                          </select>
+                        </div>
+                        <div class="col-md-4">
+                          <label>Debut : </label>
+                          <input type="number" min="0" max="24" step="1" name="inputStart">
+                        </div>
+                        <div class="col-md-4">
+                          <label>Fin : </label>
+                          <input type="number" min="0" max="24" step="1" name="inputEnd">
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 text-center" style="margin-top:5%;">
+                        <button type="submit" class="btn btn-primary  w-50">Soumettre</button>
+                      </div>
+                    </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12 text-center" style="margin-top:2%;">
+        <button class="btn btn-primary btn-lg mybut" onclick="addHours()">Ajouter créneau</button>
+      </div>
+  </div>
+
   <div class="row">
     <div class="col-md-12 text-center">
       <div class="btn mymenulist"  >
@@ -293,6 +352,12 @@ function displayDish(id, name, price, imgs){
 function hideDish(id){
   var s = "dishDetails".concat(id);
   document.getElementById(s).style.display="none";
+}
+
+function addHours(){
+  //window.location.replace("/addHours/{}");
+  var d = document.getElementById('divHours');
+  d.style.display="inline";
 }
 </script>
 

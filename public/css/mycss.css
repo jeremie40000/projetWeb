@@ -65,7 +65,7 @@ button.mysearchlist{
 	margin-bottom: 2%;
 	border-style: ridge;
 	border-width: 5px;
-	
+
 	background-color: #e4e8e8;
 	box-shadow: 5px 5px 5px gray;
 
@@ -99,6 +99,13 @@ span.mybadgesearch{
   display: none;
 }
 
+div.myHoursDiv{
+	
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+}
+
 div.myDishDetails{
 display: none;
 position: absolute;
@@ -109,7 +116,6 @@ border-style: solid;
 margin-top: -3%;
 margin-left: -50%;
 width:60%;
-
 }
 
 div.mypersinfoform{
