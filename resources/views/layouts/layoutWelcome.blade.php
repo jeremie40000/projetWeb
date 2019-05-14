@@ -25,14 +25,14 @@
             <div class="container-fluid myheader">
                 <div class="row">
                     <div class="col-md-2 text-left">
-                        <a style="text-decoragtion:none;color:black;" href="/"><h1 style="position:absolute;padding:6%;font-size: 200%;">TrouveTonResto</h1></a>
+                        <a style="text-decoration:none;color:black;" href="/"><h1 style="position:absolute;padding:6%;">TrouveTonResto</h1></a>
                     </div>
                     <div class="offset-md-6 col-md-2 text-right">
                         @auth
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-primary btn-lg mybut">Se deconnecter</button>
-                        </form>
+                              <button type="submit" class="btn btn-primary btn-lg mybut">Se deconnecter</button>
+                            </form>
                         @else
                             <a class="btn btn-primary btn-lg mybut" type="button" href="{{ route('register') }}">S'inscrire</a>
                         @endif

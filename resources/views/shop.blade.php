@@ -21,13 +21,13 @@
               @if(count($paramImages)>0)
                 <div class="carousel-item active">
                   <div class="col-4">
-                    <img src="{{$paramImages[0]->src}}" class="img-responsive" >
+                    <img src="{{$paramImages[0]->src}}" class="img-fluid rounded" >
                   </div>
                 </div>';
                 @for ($i = 1; $i < count($paramImages); $i++)
                 <div class="carousel-item ">
                   <div class="col-4">
-                    <img src="{{$paramImages[$i]->src}}" class="img-responsive">
+                    <img src="{{$paramImages[$i]->src}}" class="img-fluid rounded">
                   </div>
                 </div>
                 @endfor
@@ -46,12 +46,8 @@
   </div>
 </div>
 </div>
-<div class="container text-center" style="max-width:60%;">
-  <div class="row">
-    <div class="col-12 text-center" style="margin-top:2%;max-width:70%;margin-left:15%;margin-right:15%;">
+<div class="container text-center">
 
-    </div>
-  </div>
   @Auth
   @if(Auth::id()==$paramShop->idm)
   <div class="row">
@@ -79,7 +75,7 @@
           @Auth
           @if(Auth::id()==$paramShop->idm)
           <div class="col-md-1 text-right" style="position:absolute;" >
-            <a href="{{url("/deleteHours/$hours->idhours")}}"><img src="/images/delete.png"></a>
+            <a href="{{url("/deleteHours/$hours->idhours")}}"><img class="img-fluid" src="/images/delete.png"></a>
           </div>
           @endauth
           @endif
@@ -182,7 +178,7 @@
           <div class="container myDishDetails" id="dishDetails{{$menu->idm}}" >
                       <div class="row">
                           <div class="col-md-4">
-                              <img id="dishDetails{{$menu->idm}}/img" src="/images/profile0.jpeg" style="max-width: 80%;" >
+                              <img id="dishDetails{{$menu->idm}}/img" src="/images/profile0.jpeg" class="img-fluid rounded" style="max-width: 80%;" >
                           </div>
                           <div class="col-md-8">
                               <div class="row">
@@ -200,70 +196,88 @@
           </div>
           <div class="container"  style="color:black;">
             <div class="row" >
-              <div class="col-md-12">
-                <h1 class="text-center">{{$menu->name}}</h1>
-              </div>
+
               @Auth
               @if(Auth::id()==$paramShop->idm)
-                <div class="offset-md-11 col-md-1 text-right" style="position:absolute;" >
-                  <a href="{{url("/setMenu/$menu->idm")}}"><img src="/images/engrenage.png"></a>
+                <div class="col-sm-2 col-2 text-left" >
+                  <a href="{{url("/setMenu/$menu->idm")}}"><img class="img-fluid rounded" src="/images/engrenage.png"></a>
                 </div>
-                <div class="col-md-1 text-left" style="position:absolute;" >
-                  <a href="{{url("/deleteMenu/$menu->idm")}}"><img src="/images/delete.png"></a>
+                @endif
+                @endauth
+                <div class="col-8 col-sm-8">
+                  <h1 class="text-center">{{$menu->name}}</h1>
+                </div>
+                @Auth
+                @if(Auth::id()==$paramShop->idm)
+                <div class="col-sm-2 col-2 text-right" >
+                  <a href="{{url("/deleteMenu/$menu->idm")}}"><img class="img-fluid rounded" src="/images/delete.png"></a>
                 </div>
               @endif
               @endauth
             </div>
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-sm-4 col-4">
                 <div class="row">
-                  <h3>Entrees</h3>
+                  <div class="col-12 col-sm-12">
+                    <h3>Entrees</h3>
+                  </div>
                 </div>
                 <div class="row">
-                  <ul>
+                  <div class="col-12 col-sm-12">
+                    <ul >
+                        @foreach($paramDishes as $dish)
+                          @if($dish->idmenu == $menu->idm AND $dish->type==0)
+                          <li>
+                            <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
+                               onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                              <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                          </li>
+                          @endif
+                        @endforeach
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 col-4">
+                <div class="row">
+                  <div class="col-12 col-sm-12">
+                    <h3>Plats</h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-12">
+                    <ul>
                       @foreach($paramDishes as $dish)
-                        @if($dish->idmenu == $menu->idm AND $dish->type==0)
-                        <li>
-                          <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
-                            <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
-                        </li>
-                        @endif
-                      @endforeach
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <h3>Plats</h3>
-                </div>
-                <div class="row">
-                  <ul>
-                    @foreach($paramDishes as $dish)
-                        @if($dish->idmenu == $menu->idm AND $dish->type==1)
-                        <li>
-                          <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
-                            <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
-                        </li>
-                        @endif
-                      @endforeach
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <h3>Deserts</h3>
-                </div>
-                <div class="row">
-                  <ul>
-                    @foreach($paramDishes as $dish)
-                        @if($dish->idmenu == $menu->idm AND $dish->type==2)
+                          @if($dish->idmenu == $menu->idm AND $dish->type==1)
                           <li>
                             <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
                               <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
                           </li>
-                        @endif
-                      @endforeach
-                  </ul>
+                          @endif
+                        @endforeach
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 col-4">
+                <div class="row">
+                  <div class="col-12 col-sm-12">
+                    <h3>Deserts</h3>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-sm-12">
+                    <ul>
+                      @foreach($paramDishes as $dish)
+                          @if($dish->idmenu == $menu->idm AND $dish->type==2)
+                            <li>
+                              <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                                <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                            </li>
+                          @endif
+                        @endforeach
+                    </ul>
+                  </div>
                 </div>
               </div>
 

@@ -54,7 +54,7 @@ img.imgSearch{
 	border-color: #99ddc8;
 }
 
-button.mysearchlist{
+.mysearchlist{
 	color:black;
 	margin: 1%;
 	margin-left: 20%;
@@ -63,7 +63,7 @@ button.mysearchlist{
 	background-color: #775b59;
 	border-width: 5px;
 	box-shadow: 5px 5px 5px gray;
-	font-size: 120%;
+
 }
 
 .mymenulist{
@@ -78,25 +78,27 @@ button.mysearchlist{
 }
 
 
-a.mydishlink{
+.mydishlink{
 	margin:1%;
 	color : black;
 	text-align: right;
 	background-color: #7fc6a4;
 }
 
-span.mybadgename{
-	font-size: 200%;
+.mybadgename{
+
 	margin-bottom: 10%;
 	border-radius: 15px;
 	border-width: 5px;
 	border-style: inline;
 	background-color: #7fc6a4;
+	word-wrap: normal;
+	display: inline-block;
 }
 
-span.mybadgesearch{
+.mybadgesearch{
 	align-self: center;
-	font-size: 150%;
+
 }
 
 .carousel-item > div {
@@ -106,14 +108,13 @@ span.mybadgesearch{
   display: none;
 }
 
-div.myHoursDiv{
-
+.myHoursDiv{
 	background-color: white;
 	border-width: 1px;
 	border-style: solid;
 }
 
-div.myDishDetails{
+.myDishDetails{
 display: none;
 position: absolute;
 z-index:10;
@@ -125,7 +126,7 @@ margin-left: -50%;
 width:60%;
 }
 
-div.mypersinfoform{
+.mypersinfoform{
 	margin-left:10%;
 	margin-right:10%;
 	border-width: 3px;
@@ -136,4 +137,50 @@ div.mypersinfoform{
 	max-height: 100%;
 	max-width: 80%;
 	height: 100%;
+}
+
+.listInfoPers{
+	border-style:none;
+	background-color:#d5ecd4;
+	border-width:1px;
+	box-shadow: 10px 5px 5px gray;
+	font-size: 200%;
+}
+
+
+
+
+@media (max-width: 575.98px) {
+	html{
+			font-size:50%;
+	}
+	.mysearchlist, .mybadgename{
+			font-size: 150%;
+	}
+}
+
+
+@media (min-width: 767.98px) {
+	html{
+			font-size:60%;
+	}
+	.mysearchlist, .mybadgename{
+			font-size: 150%;
+	}
+}
+@media (min-width: 1020px) {
+	html{
+			font-size:80%;
+	}
+	.mysearchlist, .mybadgename{
+			font-size: 200%;
+	}
+}
+@media (min-width: 1250px) {
+	html{
+			font-size:100%;
+	}
+	.mysearchlist, .mybadgename{
+			font-size: 200%;
+	}
 }
