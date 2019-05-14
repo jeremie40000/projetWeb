@@ -12,20 +12,23 @@
 @section('contentWelcome')
 
 <style type="text/css" id="slider-css"></style>
-<div class="spe-cor">
-<div class="container">
-    <div class="row">
-      <div class="col-md-12" style="max-width:100%;">
+<div class="spe-cor" >
+<div class="container" >
+    <div class="row" >
+      <div class="col-md-12">
         <div id="slider-2" class="carousel carousel-by-item slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
               @if(count($paramImages)>0)
                 <div class="carousel-item active">
-                  <div class="col-4"><a href="#1"><img src="{{$paramImages[0]->src}}" class="img-responsive"></a></div>
+                  <div class="col-4">
+                    <img src="{{$paramImages[0]->src}}" class="img-responsive" >
+                  </div>
                 </div>';
                 @for ($i = 1; $i < count($paramImages); $i++)
-                <?php echo count($paramImages) ?>
                 <div class="carousel-item ">
-                  <div class="col-4"><a href="#1"><img src="{{$paramImages[$i]->src}}" class="img-responsive"></a></div>
+                  <div class="col-4">
+                    <img src="{{$paramImages[$i]->src}}" class="img-responsive">
+                  </div>
                 </div>
                 @endfor
               @endif
@@ -62,24 +65,29 @@
   @endif
   @endauth
   <div class="row">
-      <div class="col-md-12 text-center" style="margin-top:2%;">
+      <div class="col-md-12 text-center btn mymenulist" style="margin-top:2%;border-width : 0px;border-bottom-width : 1px; border-color:black;border-style:ridge;">
         <h1 class="">{{$paramShop->name}}</h1>
       </div>
   </div>
-  @foreach($paramHours as $hours)
   <div class="row">
-    <div class="col-md-12 text-center">
-      <h4 class="">{{$hours->day}} : {{$hours->start}}h - {{$hours->end}}h</h4>
-    </div>
-    @Auth
-    @if(Auth::id()==$paramShop->idm)
-    <div class="col-md-1 text-right" style="position:absolute;" >
-      <a href="{{url("/deleteHours/$hours->idhours")}}"><img src="/images/delete.png"></a>
-    </div>
-    @endauth
-    @endif
+      <div class="col-md-12 text-center btn mymenulist" style="margin-top:-2%;border-width : 0px;">
+        @foreach($paramHours as $hours)
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h4 class="">{{$hours->day}} : {{$hours->start}}h - {{$hours->end}}h</h4>
+          </div>
+          @Auth
+          @if(Auth::id()==$paramShop->idm)
+          <div class="col-md-1 text-right" style="position:absolute;" >
+            <a href="{{url("/deleteHours/$hours->idhours")}}"><img src="/images/delete.png"></a>
+          </div>
+          @endauth
+          @endif
+        </div>
+        @endforeach
+      </div>
   </div>
-  @endforeach
+
   @Auth
   @if(Auth::id()==$paramShop->idm)
   <div class="row">
@@ -190,7 +198,7 @@
                           </div>
                       </div>
           </div>
-          <div class="container">
+          <div class="container"  style="color:black;">
             <div class="row" >
               <div class="col-md-12">
                 <h1 class="text-center">{{$menu->name}}</h1>

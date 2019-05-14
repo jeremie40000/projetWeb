@@ -11,7 +11,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="offset-md-4 col-md-4 shadow-lg p-3 mb-5 bg-white rounded nameSite">
+        <div class="offset-md-4 col-md-4 shadow-lg p-3 mb-5 rounded nameSite">
             <h1>TrouveTonResto</h1>
         </div>
     </div>

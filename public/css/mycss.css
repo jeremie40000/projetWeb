@@ -4,7 +4,7 @@ div.nameSite{
 	text-align: center;
 	text-shadow: 5px 5px 5px gray;
 	margin-top: 1%;
-
+	background-color: #7fc6a4;
 }
 
 span.searchBut{
@@ -15,16 +15,17 @@ div.myheader{
 	box-shadow: 10px 5px 5px gray;
 	padding-bottom: 1%;
 	margin-bottom: 2.5%;
-	background-color: white;
+	background-color: #d5ecd4;
 }
 
 div.myfooter{
+
 	box-shadow: 10px 5px 5px gray;
-	background-color: white;
+	background-color: #d5ecd4;
 }
 
 body{
-	background-color: #F0F0F0;
+	background-color: #81a094;
 }
 
 .homebut{
@@ -48,13 +49,18 @@ img.imgSearch{
 
 }
 
+.btn-primary{
+	background-color: #99ddc8;
+	border-color: #99ddc8;
+}
+
 button.mysearchlist{
 	color:black;
 	margin: 1%;
 	margin-left: 20%;
 	margin-right: 20%;
 	border-style: ridge;
-	background-color: #e4e8e8;
+	background-color: #775b59;
 	border-width: 5px;
 	box-shadow: 5px 5px 5px gray;
 	font-size: 120%;
@@ -65,8 +71,8 @@ button.mysearchlist{
 	margin-bottom: 2%;
 	border-style: ridge;
 	border-width: 5px;
-
-	background-color: #e4e8e8;
+	color:black;
+	background-color: #775b59;
 	box-shadow: 5px 5px 5px gray;
 
 }
@@ -76,7 +82,7 @@ a.mydishlink{
 	margin:1%;
 	color : black;
 	text-align: right;
-	background-color: #33a68b;
+	background-color: #7fc6a4;
 }
 
 span.mybadgename{
@@ -85,6 +91,7 @@ span.mybadgename{
 	border-radius: 15px;
 	border-width: 5px;
 	border-style: inline;
+	background-color: #7fc6a4;
 }
 
 span.mybadgesearch{
@@ -100,7 +107,7 @@ span.mybadgesearch{
 }
 
 div.myHoursDiv{
-	
+
 	background-color: white;
 	border-width: 1px;
 	border-style: solid;
@@ -125,7 +132,7 @@ div.mypersinfoform{
 	border-style: ridge;
 	padding: 5%;
 
-	background-color: white;
+	background-color: #6b6054;
 	max-height: 100%;
 	max-width: 80%;
 	height: 100%;
