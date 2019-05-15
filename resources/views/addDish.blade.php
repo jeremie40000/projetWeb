@@ -2,13 +2,11 @@
 
 @section('titleWelcome')
 <title>TrouveTonResto</title>
-<link href="/css/bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/css/mycss.css">
 @endsection
 
 @section('contentWelcome')
 
-<div class="container mypersinfoform">
+<div class="container mypersinfoform mycard">
   <div class="row">
     <div class="col-md-10  text-right">
       <form method="post" action="{{url("/recordDish/$menu")}}" enctype="multipart/form-data">
@@ -70,7 +68,7 @@
             </div>
           </div>
       </div>
-      <div class="col-md-12 text-center">
+      <div class="col-md-12 text-center" style="margin-top:2%;">
         <button type="submit" class="btn btn-primary  w-50">Soumettre</button>
       </div>
     </form>

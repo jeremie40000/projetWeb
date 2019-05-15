@@ -2,26 +2,26 @@
 
 @section('titleWelcome')
 <title>TrouveTonResto</title>
-<link href="/css/bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/css/mycss.css">
 @endsection
 
 @section('contentWelcome')
 
-<div class="container mypersinfoform">
+<div class="container mycard mypersinfoform">
   <div class="row">
-    <div class="col-md-10  text-right">
+    <div class="col-sm-12 col-12 contentForm">
       <form method="post" action="{{url('/newShop')}}"  enctype="multipart/form-data">
         @csrf
         <!--Siret Field-->
         <div class="row">
             <div class="col-md-12">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-sm-4">
                   <h3>Numero de siret :</h3>
                 </div>
-                <div class="col-md-8">
-                  <input type="text" id="inputSiret" name="inputSiret"></input>
+                <div class="col-sm-5">
+                  <div class="mdc-text-field ">
+                    <input class="mdc-text-field__input" type="text" id="inputSiret" name="inputSiret"></input>
+                  </div>
                 </div>
               </div>
             </div>
@@ -30,11 +30,13 @@
       <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-sm-4">
                 <h3>Nom :</h3>
               </div>
-              <div class="col-md-8">
-                <input type="text" id="inputName" name="inputName"></input>
+              <div class="col-sm-5">
+                <div class="mdc-text-field ">
+                  <input class="mdc-text-field__input" type="text" id="inputName" name="inputName"></input>
+                </div>
               </div>
             </div>
           </div>
@@ -43,11 +45,13 @@
       <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-sm-4">
                 <h3>Mobile : </h3>
               </div>
-              <div class="col-md-8">
-                <input type="text" id="inputPhone" name="inputPhone"></input>
+              <div class="col-sm-5">
+                <div class="mdc-text-field ">
+                  <input class="mdc-text-field__input" type="text" id="inputPhone" name="inputPhone"></input>
+                </div>
               </div>
             </div>
           </div>
@@ -56,11 +60,13 @@
       <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-sm-4">
                 <h3>Adresse : </h3>
               </div>
-              <div class="col-md-8">
-                <input type="text" id="inputAddr" name="inputAddr"></input>
+              <div class="col-sm-5">
+                <div class="mdc-text-field ">
+                  <input class="mdc-text-field__input" type="text" id="inputAddr" name="inputAddr"></input>
+                </div>
               </div>
             </div>
           </div>
@@ -69,11 +75,13 @@
       <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-sm-4">
                 <h3>Code Postal : </h3>
               </div>
-              <div class="col-md-8">
-                <input type="text" id="inputPostalCode" name="inputPostalCode"></input>
+              <div class="col-sm-5">
+                <div class="mdc-text-field ">
+                  <input class="mdc-text-field__input" type="text" id="inputPostalCode" name="inputPostalCode"></input>
+                </div>
               </div>
             </div>
           </div>
@@ -82,11 +90,43 @@
       <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-sm-4">
                 <h3>Ville : </h3>
               </div>
-              <div class="col-md-8">
-                <input type="text" id="inputCity" name="inputCity"></input>
+              <div class="col-sm-5">
+                <div class="mdc-text-field ">
+                  <input class="mdc-text-field__input" type="text" id="inputCity" name="inputCity"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--Lat Field-->
+      <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-sm-4">
+                <h3>Latitude : </h3>
+              </div>
+              <div class="col-sm-5">
+                <div class="mdc-text-field ">
+                  <input class="mdc-text-field__input" type="text" id="inputLatitude" name="inputLatitude"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--Long Field-->
+      <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-sm-4">
+                <h3>Longitude : </h3>
+              </div>
+              <div class="col-sm-5">
+                <div class="mdc-text-field ">
+                  <input class="mdc-text-field__input" type="text" id="inputLongitude" name="inputLongitude"></input>
+                </div>
               </div>
             </div>
           </div>
@@ -95,12 +135,12 @@
       <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-sm-4">
                 <h3>Etat : </h3>
               </div>
-              <div class="offset-md-5 col-md-3">
-                <select class="custom-select" id="inputState">
-                  <option selected>Choisir...</option>
+              <div class="col-sm-5">
+                <select class="mdc-select mdc-select__native-control" id="inputState" style="width:66.6%;">
+                  <option value="" disabled selected></option>
                   <option value="1">Ouvert</option>
                   <option value="2">Ferme</option>
                 </select>
@@ -113,11 +153,11 @@
       <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-sm-4">
                 <h3>Photo : </h3>
               </div>
-              <div class="col-md-8">
-                <input name ="inputPicture" id="inputPicture" type="file" class="btn btn-primary"></input>
+              <div class="offset-sm-2 col-sm-3 text-center" style="margin-top: 2%;">
+                <input name ="inputPicture" id="inputPicture" type="file" class=""></input>
               </div>
             </div>
           </div>

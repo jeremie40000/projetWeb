@@ -2,8 +2,7 @@
 
 @section('titleWelcome')
 <title>TrouveTonResto</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" type="text/css" href="/css/mycss.css">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 
@@ -13,7 +12,7 @@
 
 <style type="text/css" id="slider-css"></style>
 <div class="spe-cor" >
-<div class="container" >
+<div class="container">
     <div class="row" >
       <div class="col-md-12">
         <div id="slider-2" class="carousel carousel-by-item slide" data-ride="carousel">
@@ -54,24 +53,25 @@
       <div class="col-md-12 text-center" style="margin-top:2%;">
         <form action="{{url("/addimageshop/$paramShop->siret")}}" method="post" enctype="multipart/form-data">
           @csrf
-          <input name ="addimage" id="addimage" type="file" class="btn btn-primary" onchange="form.submit()"></input>
+          <input name ="addimage" id="addimage" type="file" class="mycard" onchange="form.submit()"></input>
         </form>
       </div>
   </div>
   @endif
   @endauth
+  <div class="col-md-12 mymenulist mycard">
   <div class="row">
-      <div class="col-md-12 text-center btn mymenulist" style="margin-top:2%; margin-bottom: 0%;;border-width : 0px;border-bottom-width : 0px; border-color:black;border-style:ridge;">
+      <div class="col-md-12 text-center btn ">
         <h1 class="">{{$paramShop->name}}</h1>
       </div>
   </div>
   <div class="row">
-      <div class="col-md-12 text-center btn mymenulist" style="margin-top:0%;border-width : 0px;border-bottom-width : 1px; border-color:black;border-style:ridge;">
+      <div class="col-md-12 text-center btn">
         <h6 class="">{{$paramShop->phone}}</h6>
       </div>
   </div>
   <div class="row">
-      <div class="col-md-12 text-center btn mymenulist" style="margin-top:-2%;border-width : 0px;">
+      <div class="col-md-12 text-center btn ">
         @foreach($paramHours as $hours)
         <div class="row">
           @if(auth()->check() AND Auth::id()==$paramShop->idm)
@@ -91,18 +91,19 @@
         @endforeach
       </div>
   </div>
+</div>
 
   @Auth
   @if(Auth::id()==$paramShop->idm)
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="btn mymenulist "  id="divHours">
+      <div class="btn  mycard"  id="divHours">
       <div class="container">
         <form method="post" action="{{url("/addHours/$paramShop->siret")}}">
           @csrf
           <div class="row">
             <div class="col-md-12 text-center">
-              <h2>Ajouter menu</h2>
+              <h2>Ajouter Créneau</h2>
             </div>
           </div>
           <div class="row">
@@ -140,7 +141,7 @@
 
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="btn mymenulist"  >
+      <div class="btn  mycard"  style="margin-top:2%;" >
         <div class="container">
           <form method="post" action="{{url("/addmenu/$paramShop->siret")}}">
             @csrf
@@ -179,10 +180,15 @@
   @endif
   @endauth
   <div class="row">
+    <div class="col-sm-12 col-12 text-center"  style="padding-top:10%;">
+      <h2>---Liste des menus---</h2>
+    </div>
+  </div>
+  <div class="row"  style="margin-bottom:10%;">
     <div class="col-md-12 text-center">
-    <ul class="list-group"  style="margin-bottom: 10%;">
+    <ul class="list-group">
       @foreach ($paramMenus as $menu)
-        <button class="list-group-item btn mymenulist"  >
+        <button class="list-group-item btn mymenulist mycard"  >
           <div class="container myDishDetails" id="dishDetails{{$menu->idm}}" >
                       <div class="row">
                           <div class="col-md-4">
@@ -204,8 +210,6 @@
           </div>
           <div class="container"  style="color:black;">
             <div class="row" >
-
-
               @if(auth()->check() AND Auth::id()==$paramShop->idm)
                 <div class="col-sm-2 col-2 text-left" >
                   <a href="{{url("/setMenu/$menu->idm")}}"><img class="img-fluid rounded" src="/images/engrenage.png"></a>
@@ -237,20 +241,21 @@
                 </div>
                 <div class="row">
                   <div class="col-12 col-sm-12">
-                    <ul >
                         @foreach($paramDishes as $dish)
                           @if($dish->idmenu == $menu->idm AND $dish->type==0)
-                          <li>
+                          <div class="row">
+                            <div class="col-12 col-sm-12">
                             <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
                                onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
                               <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
-                          </li>
+                            </div>
+                          </div>
                           @endif
                         @endforeach
-                    </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+
               <div class="col-sm-4 col-4">
                 <div class="row">
                   <div class="col-12 col-sm-12">
@@ -259,16 +264,17 @@
                 </div>
                 <div class="row">
                   <div class="col-12 col-sm-12">
-                    <ul>
                       @foreach($paramDishes as $dish)
                           @if($dish->idmenu == $menu->idm AND $dish->type==1)
-                          <li>
-                            <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                          <div class="row">
+                            <div class="col-12 col-sm-12">
+                            <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
+                               onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
                               <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
-                          </li>
+                            </div>
+                          </div>
                           @endif
                         @endforeach
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -280,26 +286,29 @@
                 </div>
                 <div class="row">
                   <div class="col-12 col-sm-12">
-                    <ul>
                       @foreach($paramDishes as $dish)
                           @if($dish->idmenu == $menu->idm AND $dish->type==2)
-                            <li>
-                              <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')" onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
-                                <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
-                            </li>
+                          <div class="row">
+                            <div class="col-12 col-sm-12">
+                            <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
+                               onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                              <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                            </div>
+                          </div>
                           @endif
                         @endforeach
-                    </ul>
                   </div>
                 </div>
               </div>
-
             </div>
+
+
           </div>
         </button>
       @endforeach
     </ul>
   </div>
+
   </div>
 
 </div>

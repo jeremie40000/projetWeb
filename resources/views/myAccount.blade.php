@@ -2,8 +2,7 @@
 
 @section('titleWelcome')
 <title>TrouveTonResto</title>
-<link href="/css/bootstrap.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/css/mycss.css">
+
 @endsection
 
 @section('contentWelcome')
@@ -15,7 +14,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12 col-12 text-center"   style="padding-bottom:2%;">
-      <button class="btn btn-primary" style="box-shadow: 1px 1px 1px gray;" type="button" onclick="modifyClicked()">Modifier Informations Personnelles</button>
+      <button class="btn btn-primary" type="button" onclick="modifyClicked()">Modifier Informations Personnelles</button>
     </div>
   </div>
   <div class="row">
@@ -23,19 +22,19 @@
     <div class="col-md-4 text-center">
       <div class="row">
         <div class="col-sm-12 col-12 text-center" >
-          <img class=" h-100 img-fluid rounded" src="{{Auth::user()->profilepicture}}" style="box-shadow: 10px 5px 5px gray;">
+          <img class=" h-100 img-fluid rounded" src="{{Auth::user()->profilepicture}}" >
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12 text-center"  style="margin-top:1%;margin-bottom:1%;">
           <form action="{{url('/uploadprofilepicture')}}" method="post" enctype="multipart/form-data">
             @csrf
-            <input name ="uploadpp" id="uploadpp" type="file" class="btn btn-primary" onchange="form.submit()" style="box-shadow: 1px 1px 1px gray;"></input>
+            <input name ="uploadpp" id="uploadpp" type="file" class="mycard" onchange="form.submit()" ></input>
           </form>
         </div>
       </div>
     </div>
-    <div class="offset-1 offset-md-0 col-10 col-md-8  text-center  listInfoPers ">
+    <div class="offset-1 offset-md-0 col-10 col-md-8  text-center  listInfoPers mycard">
       <div class="row h-100">
         <div class="col-sm-12 my-auto">
 
@@ -129,13 +128,13 @@
   </div>
   <div class="row" style="padding-top:2%;">
     <div class="col-md-12 text-center">
-      <button class="btn btn-primary" style="box-shadow: 1px 1px 1px gray;" onclick="addShopClicked()">Ajouter commerce</button>
+      <button class="btn btn-primary"  onclick="addShopClicked()">Ajouter commerce</button>
     </div>
   </div>
 </div>
 <ul class="list-group"  style="margin-bottom: 10%;">
   @foreach ($shops as $shop)
-    <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist" >
+    <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" >
       <div class="container">
         <div class="row">
           <div class="col-md-4">
