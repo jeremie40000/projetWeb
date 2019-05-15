@@ -61,23 +61,31 @@
   @endif
   @endauth
   <div class="row">
-      <div class="col-md-12 text-center btn mymenulist" style="margin-top:2%;border-width : 0px;border-bottom-width : 1px; border-color:black;border-style:ridge;">
+      <div class="col-md-12 text-center btn mymenulist" style="margin-top:2%; margin-bottom: 0%;;border-width : 0px;border-bottom-width : 0px; border-color:black;border-style:ridge;">
         <h1 class="">{{$paramShop->name}}</h1>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-12 text-center btn mymenulist" style="margin-top:0%;border-width : 0px;border-bottom-width : 1px; border-color:black;border-style:ridge;">
+        <h6 class="">{{$paramShop->phone}}</h6>
       </div>
   </div>
   <div class="row">
       <div class="col-md-12 text-center btn mymenulist" style="margin-top:-2%;border-width : 0px;">
         @foreach($paramHours as $hours)
         <div class="row">
-          <div class="col-md-12 text-center">
-            <h4 class="">{{$hours->day}} : {{$hours->start}}h - {{$hours->end}}h</h4>
+          @if(auth()->check() AND Auth::id()==$paramShop->idm)
+          <div class="offset-2 col-sm-8 col-8 text-center">
+            <h4>{{$hours->day}} : {{$hours->start}}h - {{$hours->end}}h</h4>
           </div>
-          @Auth
-          @if(Auth::id()==$paramShop->idm)
-          <div class="col-md-1 text-right" style="position:absolute;" >
+
+          <div class="col-sm-2 col-2 text-right" >
             <a href="{{url("/deleteHours/$hours->idhours")}}"><img class="img-fluid" src="/images/delete.png"></a>
           </div>
-          @endauth
+          @else
+          <div class="col-sm-12 col-12 text-center">
+            <h4 class="">{{$hours->day}} : {{$hours->start}}h - {{$hours->end}}h</h4>
+          </div>
           @endif
         </div>
         @endforeach
@@ -88,46 +96,46 @@
   @if(Auth::id()==$paramShop->idm)
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="btn "  id="divHours" style="display: none;">
-      <div class="container myHoursDiv">
+      <div class="btn mymenulist "  id="divHours">
+      <div class="container">
         <form method="post" action="{{url("/addHours/$paramShop->siret")}}">
           @csrf
-                    <div class="row">
-                        <div class="col-md-4">
-                          <select class="custom-select" name="inputDay">
-                            <option selected>Jour...</option>
-                            <option value="lundi">Lundi</option>
-                            <option value="mardi">Mardi</option>
-                            <option value="mercredi">Mercredi</option>
-                            <option value="jeudi">Jeudi</option>
-                            <option value="vendredi">Vendredi</option>
-                            <option value="samedi">Samedi</option>
-                            <option value="dimanche">Dimanche</option>
-                          </select>
-                        </div>
-                        <div class="col-md-4">
-                          <label>Debut : </label>
-                          <input type="number" min="0" max="24" step="1" name="inputStart">
-                        </div>
-                        <div class="col-md-4">
-                          <label>Fin : </label>
-                          <input type="number" min="0" max="24" step="1" name="inputEnd">
-                        </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12 text-center" style="margin-top:5%;">
-                        <button type="submit" class="btn btn-primary  w-50">Soumettre</button>
-                      </div>
-                    </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h2>Ajouter menu</h2>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                <select class="custom-select" name="inputDay">
+                  <option selected>Jour...</option>
+                  <option value="lundi">Lundi</option>
+                  <option value="mardi">Mardi</option>
+                  <option value="mercredi">Mercredi</option>
+                  <option value="jeudi">Jeudi</option>
+                  <option value="vendredi">Vendredi</option>
+                  <option value="samedi">Samedi</option>
+                  <option value="dimanche">Dimanche</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                <label>Debut : </label>
+                <input type="number" min="0" max="24" step="1" name="inputStart">
+              </div>
+              <div class="col-md-12">
+                <label>Fin : </label>
+                <input type="number" min="0" max="24" step="1" name="inputEnd">
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center" style="margin-top:5%;">
+              <button type="submit" class="btn btn-primary  w-50">Soumettre</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
     </div>
-  </div>
-  <div class="row">
-      <div class="col-md-12 text-center" style="margin-top:2%;">
-        <button class="btn btn-primary btn-lg mybut" onclick="addHours()">Ajouter créneau</button>
-      </div>
   </div>
 
   <div class="row">
@@ -197,16 +205,21 @@
           <div class="container"  style="color:black;">
             <div class="row" >
 
-              @Auth
-              @if(Auth::id()==$paramShop->idm)
+
+              @if(auth()->check() AND Auth::id()==$paramShop->idm)
                 <div class="col-sm-2 col-2 text-left" >
                   <a href="{{url("/setMenu/$menu->idm")}}"><img class="img-fluid rounded" src="/images/engrenage.png"></a>
                 </div>
-                @endif
-                @endauth
                 <div class="col-8 col-sm-8">
                   <h1 class="text-center">{{$menu->name}}</h1>
                 </div>
+              @else
+              <div class="col-12 col-sm-12">
+                <h1 class="text-center">{{$menu->name}}</h1>
+              </div>
+                @endif
+
+
                 @Auth
                 @if(Auth::id()==$paramShop->idm)
                 <div class="col-sm-2 col-2 text-right" >

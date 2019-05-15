@@ -20,17 +20,22 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <img src="{{$shop->profilepicture}}">
+            <img class="img-fluid rounded" src="{{$shop->profilepicture}}">
           </div>
           <div class="col-md-8 ">
             <div class="row">
-              <div class="col text-right">
+              <div class="col text-center">
                 <span class="badge badge-primary mybadgename"> <?php echo $shop->name;?></span>
               </div>
             </div>
-            <div class="row right">
-              <div class="col text-right">
+            <div class="row">
+              <div class="col text-center">
                 <?php echo $shop->addr;?>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <?php echo $shop->phone;?>
               </div>
             </div>
           </div>

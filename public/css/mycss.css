@@ -13,7 +13,8 @@ span.searchBut{
 
 div.myheader{
 	box-shadow: 10px 5px 5px gray;
-	padding-bottom: 1%;
+	padding-bottom: 0.5%;
+	padding-top: 0.5%;
 	margin-bottom: 2.5%;
 	background-color: #d5ecd4;
 }
@@ -155,10 +156,18 @@ width:60%;
 			font-size:50%;
 	}
 	.mysearchlist, .mybadgename{
-			font-size: 150%;
+			font-size: 100%;
 	}
 }
 
+@media (min-width: 575.98px) {
+	html{
+			font-size:50%;
+	}
+	.mysearchlist, .mybadgename{
+			font-size: 150%;
+	}
+}
 
 @media (min-width: 767.98px) {
 	html{
@@ -167,13 +176,16 @@ width:60%;
 	.mysearchlist, .mybadgename{
 			font-size: 150%;
 	}
+	.mybut{
+		margin-top: 0%;
+	}
 }
 @media (min-width: 1020px) {
 	html{
 			font-size:80%;
 	}
 	.mysearchlist, .mybadgename{
-			font-size: 200%;
+			font-size: 150%;
 	}
 }
 @media (min-width: 1250px) {
@@ -181,6 +193,6 @@ width:60%;
 			font-size:100%;
 	}
 	.mysearchlist, .mybadgename{
-			font-size: 200%;
+			font-size: 150%;
 	}
 }
