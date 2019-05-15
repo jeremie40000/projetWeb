@@ -17,7 +17,7 @@
     </div>
     <div class="row">
         <div class="offset-md-2 col-md-4">
-            <button class="btn btn-primary btn-lg mybut" ><input type="text" name="" id="inputCity" class="input1" placeholder="Rechercher par ville"/><img src="images/search.png" class="img-fluid col-md-4 imgSearch" type="button" onclick="processDataByCity()"></button>
+            <button class="mybut btn btn-primary btn-lg "><input type="text" name="" id="inputCity" class="input1" placeholder="Rechercher par ville"/><img src="images/search.png" class="img-fluid col-md-4 imgSearch" type="button" onclick="processDataByCity()"></button>
         </div>
         <div class=" col-md-4">
             <button class="btn btn-primary btn-lg mybut"><input type="text" name="" id="inputName" class="input2" placeholder="Rechercher par nom"/><img src="images/search.png" class="img-fluid col-md-4 imgSearch"  type="button" onclick="processDataByName()"></button>
