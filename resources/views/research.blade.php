@@ -21,7 +21,7 @@
               </div>
               @foreach ($shops as $shop)
 
-                <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" >
+                <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" style="margin-left:20%;width:60%">
                   <div class="container" style="margin:0%;padding:0%;">
                     <div class="row" class="">
                       <div class="col-md-4 col-sm-12 col-12" style="width:100%;">

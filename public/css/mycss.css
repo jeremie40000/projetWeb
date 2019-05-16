@@ -27,10 +27,11 @@ div.myfooter{
 }
 
 body{
-	background-color: #e4e4e4;
+	background-color: #fefee2;
 	height: 100%;
-    width: 100%;
-    position: absolute;
+  width: 100%;
+  position: absolute;
+
 }
 
 .homebut{
@@ -74,8 +75,9 @@ img.imgSearch{
 .mysearchlist{
 	color:black;
 	margin: 1%;
-	margin-left: 20%;
-	margin-right: 20%;
+	margin-left: 0%;
+	margin-right: 0%;
+	width: 100%;
 	padding : 0%;
 
 }
@@ -97,6 +99,7 @@ img.imgSearch{
 
 .mydishlink{
 	margin:1%;
+
 	color : black;
 	text-align: right;
 	background-color: #7fc6a4;
@@ -194,6 +197,17 @@ width:60%;
 		margin-right: 25%;
 	}
 }
+
+
+
+// on personnalise le label comme on veut
+.label-file {
+    cursor: pointer;
+}
+.label-file:hover {
+    color: #25a5c4;
+}
+
 
 @media (min-width: 767.98px) {
 	html{

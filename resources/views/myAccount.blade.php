@@ -22,14 +22,16 @@
     <div class="col-md-4 text-center">
       <div class="row">
         <div class="col-sm-12 col-12 text-center" >
-          <img class=" h-100 img-fluid rounded" src="{{Auth::user()->profilepicture}}" >
+          <img class=" h-100 img-fluid rounded mycard" src="{{Auth::user()->profilepicture}}" >
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12 text-center"  style="margin-top:1%;margin-bottom:1%;">
           <form action="{{url('/uploadprofilepicture')}}" method="post" enctype="multipart/form-data">
+            @method('PUT')
             @csrf
-            <input name ="uploadpp" id="uploadpp" type="file" class="mycard" onchange="form.submit()" ></input>
+            <label for="uploadpp" class="label-file">Changer image</label>
+            <input name ="uploadpp" id="uploadpp" type="file" class="mycard" onchange="form.submit()" style="display:none;"></input>
           </form>
         </div>
       </div>
@@ -120,7 +122,15 @@
     </div>
     </div>
   </div>
-
+  <div class="row">
+    <div class="col-sm-12 col-12 text-center"   style="padding-top:2%;">
+      <form id="logout-form" action="{{url('/deleteAccount')}}" method="POST">
+        @method('DELETE')
+        @csrf
+        <button type="submit" class="btn btn-primary">Supprimer compte</button>
+      </form>
+    </div>
+  </div>
   <div class="row" style="padding-top:5%;">
     <div class="col-md-12 text-center">
       <h2>---Liste des commerces---</h2>
@@ -137,9 +147,10 @@
     <div class="col-md-12 col-sm-12 col-12">
       <ul class="list-group"  style="margin-bottom: 10%;">
         @foreach ($shops as $shop)
-
+        <div class="row">
+        <div class="offset-sm-2 offset-3 col-sm-8 col-8">
           <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" >
-            <div class="container" style="margin:0%;padding:0%;">
+            <div class="container" style="margin:0%;padding:0%;width:100%;height:100%;">
               <div class="row" class="">
                 <div class="col-md-4 col-sm-12 col-12" style="width:100%;">
                   <img class="img-fluid rounded float-left" src="{{$shop->profilepicture}}" style="height:100%; width:100%;">
@@ -148,6 +159,7 @@
                   <div class="row">
                     <div class="col-md-12 col-sm-12 col-12 text-center">
                       <span class="badge-primary mybadgename"><h4 class="my-auto" style="height:100%"><?php echo $shop->name;?></h4></span>
+
                     </div>
                   </div>
                   <div class="row">
@@ -165,7 +177,16 @@
             </div>
 
           </button>
-
+          </div>
+          <div class="col-md-2 col-sm-2 col-2 my-auto">
+          <form id="logout-form" action="{{url("deleteShop")}}" method="POST">
+            @method('DELETE')
+            @csrf
+              <input type="text" style="display:none" value="{{$shop->siret}}" name="inputSiret">
+              <button type="submit" style="border:none;background:none;position:absolute;"  style="vertical-align:middle;"><img class="img-fluid" src="/images/delete.png"></button>
+          </form>
+        </div>
+      </div>
         @endforeach
       </ul>
     </div>
@@ -175,6 +196,10 @@
 <script>
   function modifyClicked(){
     window.location.replace("/modifyPersInfo");
+  }
+
+  function deleteAccountClicked(){
+    window.location.replace("/deleteAccount");
   }
 
   function addShopClicked(){

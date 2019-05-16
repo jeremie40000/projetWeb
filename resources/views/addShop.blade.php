@@ -9,6 +9,11 @@
 <div class="container mycard mypersinfoform">
   <div class="row">
     <div class="col-sm-12 col-12 contentForm">
+      <div class="row">
+          <div class="col-md-12 text-center" style="margin-bottom:2%;">
+            <h1>---Ajouter Plat---</h1>
+          </div>
+      </div>
       <form method="post" action="{{url('/newShop')}}"  enctype="multipart/form-data">
         @csrf
         <!--Siret Field-->
@@ -157,7 +162,8 @@
                 <h3>Photo : </h3>
               </div>
               <div class="offset-sm-2 col-sm-3 text-center" style="margin-top: 2%;">
-                <input name ="inputPicture" id="inputPicture" type="file" class=""></input>
+                <label for="inputPicture" class="label-file">Ajouter une photo</label>
+                <input name ="inputPicture" id="inputPicture" type="file" style="display:none;"></input>
               </div>
             </div>
           </div>

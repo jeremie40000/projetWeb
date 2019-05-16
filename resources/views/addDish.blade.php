@@ -9,6 +9,7 @@
 <div class="container mypersinfoform mycard">
   <div class="row">
     <div class="col-md-10  text-right">
+      
       <form method="post" action="{{url("/recordDish/$menu")}}" enctype="multipart/form-data">
         @csrf
       <!--Name Field-->
@@ -63,7 +64,8 @@
                 <h3>Photo : </h3>
               </div>
               <div class="col-md-8">
-                <input name ="inputPicture" id="inputPicture" type="file" class="btn btn-primary"></input>
+                <label for="inputPicture" class="label-file">Ajouter une photo</label>
+                <input name ="inputPicture" id="inputPicture" type="file" class="btn btn-primary" style="display:none;"></input>
               </div>
             </div>
           </div>

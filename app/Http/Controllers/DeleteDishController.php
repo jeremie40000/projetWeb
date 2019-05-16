@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class DeleteDishController extends Controller
 {
-  public function index($param){
+  public function index(Request $req){
+    $param = $req->input('inputDish');
     $menuarray = DB::table('dish')->where('idd', $param)->get('idmenu');
     $menu = $menuarray[0]->idmenu;
     $shoparray = DB::table('menu')->where('idm', $menu)->get('idshop');

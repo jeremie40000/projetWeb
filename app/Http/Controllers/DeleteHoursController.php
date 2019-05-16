@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DeleteHoursController extends Controller
 {
-    public function index(Request $req, $param){
+    public function index(Request $req){
+      $param=$req->input('inputHours');
       $siret = DB::table('openingschedule')->where('idhours', $param)->get('idshop');
       $siret = $siret[0]->idshop;
       DB::table('openingschedule')->where('idhours', $param)->delete();

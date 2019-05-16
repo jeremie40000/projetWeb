@@ -11,6 +11,7 @@
   <div class="row">
     <div class="col-sm-12 col-12 contentForm">
       <form method="post" action="{{url('/updateAccount')}}">
+        @method('PUT')
         @csrf
       <!--Name Field-->
       <div class="row">

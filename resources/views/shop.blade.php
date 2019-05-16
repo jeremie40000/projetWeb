@@ -53,7 +53,8 @@
       <div class="col-md-12 text-center" style="margin-top:2%;">
         <form action="{{url("/addimageshop/$paramShop->siret")}}" method="post" enctype="multipart/form-data">
           @csrf
-          <input name ="addimage" id="addimage" type="file" class="mycard" onchange="form.submit()"></input>
+          <label for="addimage" class="label-file">Ajouter une image</label>
+          <input name ="addimage" id="addimage" type="file" class="mycard" onchange="form.submit()" style="display:none;"></input>
         </form>
       </div>
   </div>
@@ -78,9 +79,13 @@
           <div class="offset-2 col-sm-8 col-8 text-center">
             <h4>{{$hours->day}} : {{$hours->start}}h - {{$hours->end}}h</h4>
           </div>
-
           <div class="col-sm-2 col-2 text-right" >
-            <a href="{{url("/deleteHours/$hours->idhours")}}"><img class="img-fluid" src="/images/delete.png"></a>
+            <form  action="{{url("/deleteHours")}}" method="POST">
+              @method('DELETE')
+              @csrf
+              <input type="text" style="display:none" value="{{$hours->idhours}}" name="inputHours">
+              <button type="submit" style="border:none;background:none;"><img class="img-fluid" src="/images/delete.png"></button>
+            </form>
           </div>
           @else
           <div class="col-sm-12 col-12 text-center">
@@ -188,7 +193,7 @@
     <div class="col-md-12 text-center">
     <ul class="list-group">
       @foreach ($paramMenus as $menu)
-        <button class="list-group-item btn mymenulist mycard"  >
+        <div class="list-group-item btn mymenulist mycard"  >
           <div class="container myDishDetails" id="dishDetails{{$menu->idm}}" >
                       <div class="row">
                           <div class="col-md-4">
@@ -227,10 +232,20 @@
                 @Auth
                 @if(Auth::id()==$paramShop->idm)
                 <div class="col-sm-2 col-2 text-right" >
-                  <a href="{{url("/deleteMenu/$menu->idm")}}"><img class="img-fluid rounded" src="/images/delete.png"></a>
+                  <form  action="{{url("/deleteMenu")}}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <input type="text" style="display:none" value="{{$menu->idm}}" name="inputMenu">
+                    <button type="submit" style="border:none;background:none;"><img class="img-fluid" src="/images/delete.png"></button>
+                  </form>
                 </div>
               @endif
               @endauth
+            </div>
+            <div class="row">
+              <div class="col-12 col-sm-12">
+                <h6>Prix : {{$menu->price}}e</h6>
+              </div>
             </div>
             <div class="row">
               <div class="col-sm-4 col-4">
@@ -244,12 +259,20 @@
                         @foreach($paramDishes as $dish)
                           @if($dish->idmenu == $menu->idm AND $dish->type==0)
                           <div class="row">
-                            <div class="col-12 col-sm-12">
+                            <div class="col-8 col-sm-8 text-right" style="padding-right:0px;">
                             <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
                                onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                            </div>
+                            <div class="col-2 col-sm-2 " style="padding-left:0px;">
                                @Auth
                                @if(Auth::id()==$paramShop->idm)
-                                <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                               <form action="{{url("/deleteDish")}}" method="POST">
+                                 @method('DELETE')
+                                 @csrf
+                                 <input type="text" style="display:none" value="{{$dish->idd}}" name="inputDish">
+                                 <button type="submit" style="vertical-align:middle;border:none;background:none;"><img class="" src="/images/deleteDish.png"></button>
+                               </form>
+
                               @endif
                               @endauth
                             </div>
@@ -271,12 +294,20 @@
                       @foreach($paramDishes as $dish)
                           @if($dish->idmenu == $menu->idm AND $dish->type==1)
                           <div class="row">
-                            <div class="col-12 col-sm-12">
+                            <div class="col-8 col-sm-8 text-right" style="padding-right:0px;">
                             <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
                                onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                            </div>
+                            <div class="col-2 col-sm-2 " style="padding-left:0px;">
                                @Auth
                                @if(Auth::id()==$paramShop->idm)
-                                <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                               <form action="{{url("/deleteDish")}}" method="POST">
+                                 @method('DELETE')
+                                 @csrf
+                                 <input type="text" style="display:none" value="{{$dish->idd}}" name="inputDish">
+                                 <button type="submit" style="vertical-align:middle;border:none;background:none;"><img class="" src="/images/deleteDish.png"></button>
+                               </form>
+
                               @endif
                               @endauth
                             </div>
@@ -297,12 +328,20 @@
                       @foreach($paramDishes as $dish)
                           @if($dish->idmenu == $menu->idm AND $dish->type==2)
                           <div class="row">
-                            <div class="col-12 col-sm-12">
+                            <div class="col-8 col-sm-8 text-right" style="padding-right:0px;">
                             <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
                                onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
+                            </div>
+                            <div class="col-2 col-sm-2 " style="padding-left:0px;">
                                @Auth
                                @if(Auth::id()==$paramShop->idm)
-                                <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                               <form action="{{url("/deleteDish")}}" method="POST">
+                                 @method('DELETE')
+                                 @csrf
+                                 <input type="text" style="display:none" value="{{$dish->idd}}" name="inputDish">
+                                 <button type="submit" style="vertical-align:middle;border:none;background:none;"><img class="" src="/images/deleteDish.png"></button>
+                               </form>
+
                               @endif
                               @endauth
                             </div>
@@ -316,7 +355,7 @@
 
 
           </div>
-        </button>
+        </div>
       @endforeach
     </ul>
   </div>
