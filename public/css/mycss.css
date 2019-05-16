@@ -12,7 +12,7 @@ span.searchBut{
 }
 
 div.myheader{
-	box-shadow: 10px 5px 5px gray;
+	box-shadow: 0px 2px 5px gray;
 	padding-bottom: 0.5%;
 	padding-top: 0.5%;
 	margin-bottom: 2.5%;
@@ -63,11 +63,21 @@ img.imgSearch{
 	background-color: #f76a3e;
 }
 
+.btn-primary:hover{
+	border-color: #574747;
+	background-color: #574747;
+
+}
+
+
+
 .mysearchlist{
 	color:black;
 	margin: 1%;
 	margin-left: 20%;
 	margin-right: 20%;
+	padding : 0%;
+
 }
 
 .mymenulist{
@@ -94,15 +104,17 @@ img.imgSearch{
 }
 
 .mybadgename{
-
-	margin-bottom: 10%;
+	margin-top: 1%;
+	margin-bottom: 5%;
 	border-radius: 15px;
 	border-width: 5px;
 	border-style: inline;
 	background-color: #f76a3e;
-	word-wrap: normal;
+	height:50%;
 	display: inline-block;
-
+	width: 80%;
+	word-wrap:break-word;
+	vertical-align: middle;
 }
 
 .mybadgesearch{

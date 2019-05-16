@@ -44,7 +44,7 @@
                               <button type="submit" class="btn btn-primary btn-lg mybut">Se deconnecter</button>
                             </form>
                         @else
-                            <button class="btn btn-primary btn-lg mybut" type="button" href="{{ route('register') }}">S'inscrire</button>
+                            <a class="btn btn-primary btn-lg mybut" type="button" href="{{ route('register') }}">S'inscrire</a>
                         @endif
                     </div>
                     <div class="col-md-2 text-right">

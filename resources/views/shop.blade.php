@@ -247,7 +247,11 @@
                             <div class="col-12 col-sm-12">
                             <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
                                onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
-                              <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                               @Auth
+                               @if(Auth::id()==$paramShop->idm)
+                                <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                              @endif
+                              @endauth
                             </div>
                           </div>
                           @endif
@@ -270,7 +274,11 @@
                             <div class="col-12 col-sm-12">
                             <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
                                onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
-                              <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                               @Auth
+                               @if(Auth::id()==$paramShop->idm)
+                                <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                              @endif
+                              @endauth
                             </div>
                           </div>
                           @endif
@@ -292,7 +300,11 @@
                             <div class="col-12 col-sm-12">
                             <a id="{{$dish->idd}}" onmouseover="displayDish('{{$dish->idmenu}}','{{$dish->name}}', '{{$dish->priceunit}}', '{{$dish->srcimage}}')"
                                onmouseout="hideDish('{{$dish->idmenu}}')" class="btn btn-primary mydishlink">{{$dish->name}}</a>
-                              <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                               @Auth
+                               @if(Auth::id()==$paramShop->idm)
+                                <a href="{{url("/deleteDish/$dish->idd")}}"><img src="/images/deleteDish.png"></a>
+                              @endif
+                              @endauth
                             </div>
                           </div>
                           @endif

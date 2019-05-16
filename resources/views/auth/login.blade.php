@@ -7,10 +7,10 @@
 @endsection
 
 @section('contentWelcome')
-<div class="container">
+<div class="container" style="height:100%;">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mycard">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">

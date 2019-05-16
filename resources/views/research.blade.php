@@ -6,46 +6,55 @@
 @endsection
 
 @section('contentWelcome')
-<?php
-      if(count($shops)==0){
-        echo "<script>alert(\"Aucun restaurant de ce nom\")</script>";
-        //renvoyer vers la page d'accueil
-      }
-      else{ ?>
-        <ul class="list-group"  style="margin-bottom: 10%;">
-  <span class="badge badge-secondary mybadgesearch">Liste des restaurants pour <?php echo $shops[0]->city;?></span>
-  @foreach ($shops as $shop)
-    <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist" >
+      @if(count($shops)==0)
+        <script>
+          alert("Aucun restaurant trouvé");
+          window.location.replace("/");
+        </script>
+      @else
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
-            <img class="img-fluid rounded" src="{{$shop->profilepicture}}">
-          </div>
-          <div class="col-md-8 ">
-            <div class="row">
-              <div class="col text-center">
-                <span class="badge badge-primary mybadgename"> <?php echo $shop->name;?></span>
+          <div class="col-md-12 col-sm-12 col-12">
+            <ul class="list-group"  style="margin-bottom: 10%;">
+              <div class="col-sm-12 col-12 text-center"  style="padding-bottom:2%;">
+                <h2>---Liste des commerces---</h2>
               </div>
-            </div>
-            <div class="row">
-              <div class="col text-center">
-                <?php echo $shop->addr;?>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col text-center">
-                <?php echo $shop->phone;?>
-              </div>
-            </div>
+              @foreach ($shops as $shop)
+
+                <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" >
+                  <div class="container" style="margin:0%;padding:0%;">
+                    <div class="row" class="">
+                      <div class="col-md-4 col-sm-12 col-12" style="width:100%;">
+                        <img class="img-fluid rounded float-left" src="{{$shop->profilepicture}}" style="height:100%; width:100%;">
+                      </div>
+                      <div class="col-md-8 col-sm-12 col-12">
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-12 text-center">
+                            <span class="badge-primary mybadgename"><h4><?php echo $shop->name;?></h4></span>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col text-center">
+                            <?php echo $shop->addr;?>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col text-center">
+                            <?php echo $shop->phone;?>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </button>
+
+              @endforeach
+            </ul>
           </div>
         </div>
       </div>
-
-    </button>
-  @endforeach
-</ul>
-
-      <?php } ?>
+      @endif
 
 
 <script type="text/javascript">

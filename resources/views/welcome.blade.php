@@ -16,9 +16,9 @@
     </div>
     <div class="row">
         <div class="offset-md-2 col-md-4">
-            <div class="mysearchbut mycard btn-lg">
+            <div class="mysearchbut btn-lg mycard">
                 <input type="text" name="inputCity" id="inputCity" placeholder="Rechercher par ville"/>
-              <img src="images/search.png" class="img-fluid col-md-4 imgSearch"  onclick="processDataByCity()">
+              <img src="images/search.png" class="img-fluid col-md-4 imgSearch" onclick="processDataByCity()">
             </div>
         </div>
         <div class=" col-md-4">

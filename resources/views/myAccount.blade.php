@@ -132,31 +132,45 @@
     </div>
   </div>
 </div>
-<ul class="list-group"  style="margin-bottom: 10%;">
-  @foreach ($shops as $shop)
-    <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" >
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <img class="img-fluid rounded" src="{{$shop->profilepicture}}">
-          </div>
-          <div class="col-md-8 " >
-            <div class="row">
-              <div class="col text-center">
-                <span class="badge badge-primary mybadgename" style="margin-top:2%"> <?php echo $shop->name;?></span>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-12">
+      <ul class="list-group"  style="margin-bottom: 10%;">
+        @foreach ($shops as $shop)
+
+          <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" >
+            <div class="container" style="margin:0%;padding:0%;">
+              <div class="row" class="">
+                <div class="col-md-4 col-sm-12 col-12" style="width:100%;">
+                  <img class="img-fluid rounded float-left" src="{{$shop->profilepicture}}" style="height:100%; width:100%;">
+                </div>
+                <div class="col-md-8 col-sm-12 col-12">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12 col-12 text-center">
+                      <span class="badge-primary mybadgename"><h4 class="my-auto" style="height:100%"><?php echo $shop->name;?></h4></span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col text-center">
+                      <?php echo $shop->addr;?>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col text-center">
+                      <?php echo $shop->phone;?>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row right">
-              <div class="col text-center">
-                <?php echo $shop->addr;?>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </button>
-  @endforeach
-</ul>
+
+          </button>
+
+        @endforeach
+      </ul>
+    </div>
+  </div>
+</div>
 
 <script>
   function modifyClicked(){
