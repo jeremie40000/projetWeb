@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class WelcomeController extends Controller
 {
     public function index(){
-      $shops = DB::select("select siret, name, lat, long from shop");
+      $shops = DB::select("select siret, name, lat, long, city from shop");
       return view('welcome', ['shops'=>$shops]);
     }
 
