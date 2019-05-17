@@ -8,10 +8,9 @@ use Illuminate\Support\Facades\DB;
 class ResearchByNameController extends Controller
 {
     public function index($param){
-    	$req = "select * from shop where name='$param'";
-    	$shops = DB::select($req);
+    	$shops = DB::table('shop')->where('name', $param)->paginate(10);
     	return view('research', ["shops"=>$shops]);
-    	
-    	
+
+
     }
 }

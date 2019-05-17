@@ -28,10 +28,10 @@
         <!-- Fonts -->
 
 
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
     </head>
-    <body>
+    <body onresize="screenResized()">
         <header>
             <div class="container-fluid myheader align-items-center">
                 <div class="row h-100">

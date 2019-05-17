@@ -11,8 +11,8 @@
 <div class="container-fluid h-100 w-100" >
     <div class="row h-50 w-100" style="margin-left:0%;margin-right: 0%;margin-bottom:5%;">
       <div class="col-12 col-sm-12">
-        <div class="mysearchlist mycard " style="margin-left: 40%;width:20%;position:absolute;z-index:1000000;">
-          <input type="text" name="inputMap" id="inputMap" placeholder="Ville" style="text-align:center;"/>
+        <div class="mysearchlist mycard myInputMap" id="divInputMap">
+          <input type="text" name="inputMap" id="inputMap" placeholder="Ville" style="text-align:center;max-width:100%;"/>
         </div>
         <div class="spinner-border" style="display:none;position:absolute;z-index:1000000;margin-left:45%;margin-top:10%;" id="myspin"></div>
         <div name="mapid" id="mapid" class="mycard" style="margin-left: 10%; margin-right: 10%;height:100%;opacity:0.5;"></div>
@@ -41,7 +41,7 @@
     var listCities=[];
     var mymap = L.map('mapid').setView([43.6, 4], 13);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 8}).addTo(mymap);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 15}).addTo(mymap);
 
     var ar = <?php echo json_encode($shops) ?>;
     for (var i = 0; i < ar.length; i++){
@@ -99,7 +99,8 @@
 
 
     $('#inputName').autocomplete({source:listNamesUnique});
-    $('#inputCity').autocomplete({source:listCitiesUniques});
+    $('#inputCity').autocomplete({source:listCitiesUnique});
+    $('#inputMap').autocomplete({source:listCitiesUnique});
 
     function markerClicked(siret){
       var uri = "/shop/"+siret;
@@ -115,6 +116,11 @@
         var name =document.getElementById("inputName").value;
         var uri = "/researchName/".concat(name);
         window.location.replace(uri);
+    }
+
+    function screenResized(){
+      var el = document.getElementById("divInputMap");
+      //el.style.marginLeft=window.innerWidth;
     }
 </script>
 

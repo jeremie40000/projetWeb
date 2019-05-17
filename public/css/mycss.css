@@ -204,7 +204,12 @@ width:60%;
 	}
 }
 
-
+.myInputMap{
+	margin-left: 37.5%;
+	width:20%;
+	position:absolute;
+	z-index:1000000;
+}
 
 // on personnalise le label comme on veut
 .label-file {
@@ -232,7 +237,7 @@ width:60%;
 		text-align: center;
 	}
 }
-@media (min-width: 1020px) {
+@media (min-width: 1020px) {-left
 	html{
 			font-size:80%;
 	}
