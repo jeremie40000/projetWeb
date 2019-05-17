@@ -147,8 +147,8 @@
     <div class="col-md-12 col-sm-12 col-12">
       <ul class="list-group"  style="margin-bottom: 10%;">
         @foreach ($shops as $shop)
-        <div class="row">
-        <div class="offset-sm-2 offset-3 col-sm-8 col-8">
+        <div class="row" style="margin-bottom: 2%;">
+        <div class="offset-sm-2 offset-2 col-sm-8 col-8">
           <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" >
             <div class="container" style="margin:0%;padding:0%;width:100%;height:100%;">
               <div class="row" class="">

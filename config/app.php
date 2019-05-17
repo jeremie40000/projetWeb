@@ -121,7 +121,7 @@ return [
 
     'key' => env('APP_KEY', 'SomeRandomStringSomeRandomString'),
 
-    
+
 
     'cipher' => 'AES-256-CBC',
 
@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
 
         /*
          * Package Service Providers...

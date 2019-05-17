@@ -102,90 +102,112 @@
   @if(Auth::id()==$paramShop->idm)
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="btn  mycard"  id="divHours">
-      <div class="container">
-        <form method="post" action="{{url("/addHours/$paramShop->siret")}}">
-          @csrf
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <h2>Ajouter Créneau</h2>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalHours">
+        Ajouter Créneau
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalHours" tabindex="-1" role="dialog" aria-labelledby="modalHoursTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="container">
+                <form method="post" action="{{url("/addHours/$paramShop->siret")}}">
+                  @csrf
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h2>Ajouter Créneau</h2>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-12">
+                        <select class="custom-select" name="inputDay">
+                          <option selected>Jour...</option>
+                          <option value="lundi">Lundi</option>
+                          <option value="mardi">Mardi</option>
+                          <option value="mercredi">Mercredi</option>
+                          <option value="jeudi">Jeudi</option>
+                          <option value="vendredi">Vendredi</option>
+                          <option value="samedi">Samedi</option>
+                          <option value="dimanche">Dimanche</option>
+                        </select>
+                      </div>
+                      <div class="col-md-12">
+                        <label>Debut : </label>
+                        <input type="number" min="0" max="24" step="1" name="inputStart">
+                      </div>
+                      <div class="col-md-12">
+                        <label>Fin : </label>
+                        <input type="number" min="0" max="24" step="1" name="inputEnd">
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 text-center" style="margin-top:5%;">
+                      <button type="submit" class="btn btn-primary  w-50">Soumettre</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-          <div class="row">
-              <div class="col-md-12">
-                <select class="custom-select" name="inputDay">
-                  <option selected>Jour...</option>
-                  <option value="lundi">Lundi</option>
-                  <option value="mardi">Mardi</option>
-                  <option value="mercredi">Mercredi</option>
-                  <option value="jeudi">Jeudi</option>
-                  <option value="vendredi">Vendredi</option>
-                  <option value="samedi">Samedi</option>
-                  <option value="dimanche">Dimanche</option>
-                </select>
-              </div>
-              <div class="col-md-12">
-                <label>Debut : </label>
-                <input type="number" min="0" max="24" step="1" name="inputStart">
-              </div>
-              <div class="col-md-12">
-                <label>Fin : </label>
-                <input type="number" min="0" max="24" step="1" name="inputEnd">
-              </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 text-center" style="margin-top:5%;">
-              <button type="submit" class="btn btn-primary  w-50">Soumettre</button>
-            </div>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
-    </div>
   </div>
-
   <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="btn  mycard"  style="margin-top:2%;" >
-        <div class="container">
-          <form method="post" action="{{url("/addmenu/$paramShop->siret")}}">
-            @csrf
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <h2>Ajouter menu</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                Nom :
-              </div>
-              <div class="col-md-6">
-                Prix :
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                  <input type="text" name="inputName" id="inputName"></input>
-              </div>
-              <div class="col-md-6">
-                  <input type="number"  name="inputPrice" id="inputPrice"></input>
-              </div>
-            </div>
-            <div class="row" style="padding-top:5%;">
-              <div class="col-md-12">
-                <button class="btn btn-primary" type="submit">Ajouter</button>
-              </div>
-            </div>
-          </form>
-        </div>
+    <div class="col-md-12 text-center" style="margin-top:2%;margin-bottom:2%;">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        Ajouter menu
       </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="container">
+                <form method="post" action="{{url("/addmenu/$paramShop->siret")}}">
+                  @csrf
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h2>Ajouter menu</h2>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      Nom :
+                    </div>
+                    <div class="col-md-6">
+                      Prix :
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" name="inputName" id="inputName"></input>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number"  name="inputPrice" id="inputPrice"></input>
+                    </div>
+                  </div>
+                  <div class="row" style="padding-top:5%;">
+                    <div class="col-md-12">
+                      <button class="btn btn-primary" type="submit">Ajouter</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
   @endif
   @endauth
   <div class="row">
-    <div class="col-sm-12 col-12 text-center"  style="padding-top:10%;">
+    <div class="col-sm-12 col-12 text-center"  >
       <h2>---Liste des menus---</h2>
     </div>
   </div>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "94d4bf9ac7f4a933030e46a346ee2917",
+    "content-hash": "9c41e79ca588d3b63753e2ca0bf81ba2",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2632,6 +2632,61 @@
                 "environment"
             ],
             "time": "2019-03-06T09:39:45+00:00"
+        },
+        {
+            "name": "zae/strict-transport-security",
+            "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zae/strict-transport-security.git",
+                "reference": "ffb26f953c4bcb3d72920fa53f5e73984b69e5dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Zae/strict-transport-security/zipball/ffb26f953c4bcb3d72920fa53f5e73984b69e5dc",
+                "reference": "ffb26f953c4bcb3d72920fa53f5e73984b69e5dc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": ">=1.0",
+                "illuminate/support": ">=1.0",
+                "symfony/http-foundation": ">=2.0",
+                "symfony/http-kernel": ">=2.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Zae\\StrictTransportSecurity\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ezra Pool",
+                    "email": "ezra@tsdme.nl"
+                }
+            ],
+            "description": "Set the HSTS header to enable HTTP Strict Transport Security",
+            "keywords": [
+                "Laravel 4",
+                "StackPHP",
+                "hsts",
+                "http",
+                "laravel",
+                "laravel 5",
+                "middleware",
+                "ssl",
+                "strict transport security",
+                "tsl"
+            ],
+            "time": "2016-02-23T21:19:22+00:00"
         }
     ],
     "packages-dev": [

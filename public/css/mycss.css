@@ -31,7 +31,7 @@ body{
 	height: 100%;
   width: 100%;
   position: absolute;
-
+  font-family: 'Playfair Display', serif;
 }
 
 .homebut{
@@ -52,6 +52,7 @@ body{
 
 .mysearchbut{
 	background-color: #bf360c ! important;
+	border-radius: 50px;
 }
 
 img.imgSearch{

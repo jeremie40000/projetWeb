@@ -15,13 +15,13 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-12">
-            <ul class="list-group"  style="margin-bottom: 10%;">
+            <ul class="list-group"  >
               <div class="col-sm-12 col-12 text-center"  style="padding-bottom:2%;">
                 <h2>---Liste des commerces---</h2>
               </div>
               @foreach ($shops as $shop)
 
-                <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" style="margin-left:20%;width:60%">
+                <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" style="margin-left:17.5%;width:65%">
                   <div class="container" style="margin:0%;padding:0%;">
                     <div class="row" class="">
                       <div class="col-md-4 col-sm-12 col-12" style="width:100%;">
@@ -51,6 +51,11 @@
 
               @endforeach
             </ul>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 10%;">
+          <div class="offset-sm-5 col-sm-2 col-12">
+            {{$shops->links()}}
           </div>
         </div>
       </div>

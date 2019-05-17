@@ -22,6 +22,7 @@ Route::get('/researchCity/{param}', 'ResearchByCityController@index');
 Route::get('/researchName/{param}', 'ResearchByNameController@index');
 Route::get('/dish/{param}', 'DishController@index');
 Route::get('/myAccount', 'MyAccountController@index');
+Route::get('/ajaxMarkers', 'MyAjaxMarkersController@index');
 Route::put('/uploadprofilepicture', 'UploadProfilePictureController@index');
 Route::post('/newShop', 'NewShopController@index');
 Route::post('/addimageshop/{param}', 'AddImageController@index');
