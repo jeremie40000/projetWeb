@@ -19,19 +19,19 @@
       </div>
     </div>
     <div class="row">
-        <div class="offset-md-2 col-md-4 offset-1 offset-sm-2 col-sm-8 col-10 text-center">
+        <div class="offset-md-2 col-md-4 offset-sm-1 col-sm-5  text-center">
             <div class="btn-lg mycard mysearchbut">
               <input type="text" name="inputCity" id="inputCity" placeholder="Rechercher par ville" style="width:60%;"/>
               <img src="images/search.png" class=" col-sm-4 col-4 imgSearch" onclick="processDataByCity()">
             </div>
         </div>
-        <div class=" col-sm-8 offset-1 offset-sm-5 col-10 col-md-4 text-center" style="margin-left:0%;">
+        <div class=" col-md-4 col-sm-5  text-center" >
             <div class="mysearchbut mycard btn-lg">
               <input type="text" name="inputName" id="inputName" placeholder="Rechercher par nom" style="width:60%;"/>
               <img src="images/search.png" class=" col-sm-4 col-4 imgSearch"  onclick="processDataByName()">
             </div>
         </div>
-    </div>
+</div>
 </div>
 
 
