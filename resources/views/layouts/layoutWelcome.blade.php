@@ -23,24 +23,15 @@
         <script src="/js/jquery-ui.js"></script>
         <script src="/js/bootstrap.js"></script>
         <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-   crossorigin=""></script>
-
-
-
-        <!-- Fonts -->
-
-
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 
     </head>
-    <body onresize="screenResized()">
+    <body>
         <header>
             <div class="container-fluid myheader align-items-center">
                 <div class="row h-100">
                     <div class="col-md-2 col-12 text-center my-auto">
-                        <a style="text-decoration:none;color:white;" href="/"><h1>TrouveTonResto</h1></a>
+                        <a class="titleHeader" href="/"><h1>TrouveTonResto</h1></a>
                     </div>
                     <div class="offset-md-6 col-md-2 ">
                         @auth
@@ -64,8 +55,6 @@
         </header>
 
         @yield('contentWelcome')
-
-
 
     </body>
 </html>

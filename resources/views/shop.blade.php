@@ -2,14 +2,10 @@
 
 @section('titleWelcome')
 <title>TrouveTonResto</title>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-
 @endsection
 
 @section('contentWelcome')
-
+<!-- Building Carousel Element -->
 <style type="text/css" id="slider-css"></style>
 <div class="spe-cor" >
 <div class="container">
@@ -45,8 +41,9 @@
   </div>
 </div>
 </div>
+<!--  -->
 <div class="container text-center">
-
+  <!-- Button Add Image To Carousel -->
   @Auth
   @if(Auth::id()==$paramShop->idm)
   <div class="row">
@@ -60,6 +57,7 @@
   </div>
   @endif
   @endauth
+  <!-- Infos about shop -->
   <div class="col-md-12 mymenulist mycard">
   <div class="row">
       <div class="col-md-12 text-center btn ">
@@ -71,6 +69,7 @@
         <h6 class="">{{$paramShop->phone}}</h6>
       </div>
   </div>
+  <!-- List of Opening Hours -->
   <div class="row">
       <div class="col-md-12 text-center btn ">
         @foreach($paramHours as $hours)
@@ -156,7 +155,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12 text-center" style="margin-top:2%;margin-bottom:2%;">
+    <div class="col-md-12 text-center" id="divModalHours">
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Ajouter menu
@@ -211,11 +210,13 @@
       <h2>---Liste des menus---</h2>
     </div>
   </div>
+  <!-- List of Menus -->
   <div class="row"  style="margin-bottom:10%;">
     <div class="col-md-12 text-center">
     <ul class="list-group">
       @foreach ($paramMenus as $menu)
         <div class="list-group-item btn mymenulist mycard"  >
+          <!-- Dish Details Popup -->
           <div class="container myDishDetails" id="dishDetails{{$menu->idm}}" >
                       <div class="row">
                           <div class="col-md-4">
@@ -269,6 +270,7 @@
                 <h6>Prix : {{$menu->price}}e</h6>
               </div>
             </div>
+            <!-- Entrances -->
             <div class="row">
               <div class="col-sm-4 col-4">
                 <div class="row">
@@ -292,7 +294,7 @@
                                  @method('DELETE')
                                  @csrf
                                  <input type="text" style="display:none" value="{{$dish->idd}}" name="inputDish">
-                                 <button type="submit" style="vertical-align:middle;border:none;background:none;"><img class="" src="/images/deleteDish.png"></button>
+                                 <button type="submit" class="buttonDeleteDish"><img class="" src="/images/deleteDish.png"></button>
                                </form>
 
                               @endif
@@ -304,7 +306,7 @@
                     </div>
                   </div>
                 </div>
-
+              <!-- Main courses -->
               <div class="col-sm-4 col-4">
                 <div class="row">
                   <div class="col-12 col-sm-12">
@@ -327,7 +329,7 @@
                                  @method('DELETE')
                                  @csrf
                                  <input type="text" style="display:none" value="{{$dish->idd}}" name="inputDish">
-                                 <button type="submit" style="vertical-align:middle;border:none;background:none;"><img class="" src="/images/deleteDish.png"></button>
+                                 <button class="buttonDeleteDish" type="submit"><img src="/images/deleteDish.png"></button>
                                </form>
 
                               @endif
@@ -339,6 +341,7 @@
                   </div>
                 </div>
               </div>
+              <!-- Desserts -->
               <div class="col-sm-4 col-4">
                 <div class="row">
                   <div class="col-12 col-sm-12">
@@ -361,7 +364,7 @@
                                  @method('DELETE')
                                  @csrf
                                  <input type="text" style="display:none" value="{{$dish->idd}}" name="inputDish">
-                                 <button type="submit" style="vertical-align:middle;border:none;background:none;"><img class="" src="/images/deleteDish.png"></button>
+                                 <button type="submit" class="buttonDeleteDish"><img class="" src="/images/deleteDish.png"></button>
                                </form>
 
                               @endif
@@ -374,20 +377,18 @@
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
       @endforeach
     </ul>
   </div>
-
   </div>
 
 </div>
 
 <script type="text/javascript">
 
+//Function for Carousel
 function GetUnique(e) {
     var l = [],
         s = temp_c = [],
@@ -398,7 +399,7 @@ function GetUnique(e) {
     for (var c = 0; c < s.length; c++) temp_c = s[c].split("-"), 2 == temp_c.length && (temp_c.push(""), temp_c[2] = temp_c[1], temp_c[1] = "xs", s[c] = temp_c.join("-")), -1 == $.inArray(s[c], l) && $.inArray(s[c], t) && l.push(s[c]);
     return l
 }
-
+//Function for Carousel
 function setcss(e, l, s) {
     for (var t = ["", "", "", "", "", ""], c = d = f = g = 0, r = [1200, 992, 768, 567, 0], o = [], a = 0; a < e.length; a++) {
         var i = e[a].split("-");
@@ -434,7 +435,7 @@ function setcss(e, l, s) {
     })
 }
 
-//Use Different Slider IDs for multiple slider
+//Function for Carousel
 $(document).ready(function() {
     var item = '#slider-1 .carousel-item';
     var item_inner = "#slider-1 .carousel-inner";
@@ -447,16 +448,7 @@ $(document).ready(function() {
     classes = GetUnique(item_1);
     setcss(classes, item_1, item_inner_1);
 });
-
-$("mydishlink").hover(
-    function(event) {
-
-    },
-    function (event) {
-        // The mouse has left the element, can reference the element via 'this'
-    }
- );
-
+//Function To Display Dish Popup
 function displayDish(id, name, price, imgs){
   var s = "dishDetails".concat(id);
   var d = document.getElementById(s);
@@ -466,13 +458,13 @@ function displayDish(id, name, price, imgs){
   document.getElementById(s.concat('/h2')).innerHTML = "Prix a la carte : ".concat(price);
   document.getElementById(s.concat('/img')).src = imgs;
 }
+//Function To Hide Dish Popup
 function hideDish(id){
   var s = "dishDetails".concat(id);
   document.getElementById(s).style.display="none";
 }
-
+//Function To Add An Opening Hour
 function addHours(){
-  //window.location.replace("/addHours/{}");
   var d = document.getElementById('divHours');
   d.style.display="inline";
 }

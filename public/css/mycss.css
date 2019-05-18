@@ -1,4 +1,9 @@
 
+.titleHeader{
+	text-decoration:none;
+	color:white;
+}
+
 div.nameSite{
 	color: black;
 	text-align: center;
@@ -61,7 +66,7 @@ body{
 	border-radius: 50px;
 }
 
-img.imgSearch{
+.imgSearch{
 	width : 20%;
 
 }
@@ -77,7 +82,20 @@ img.imgSearch{
 
 }
 
+.researchButtonList{
+	margin-left:17.5%;
+	width:65%;
+}
 
+.noBoundsContainer{
+	margin:0%;padding:0%;
+}
+
+.deleteNoBack{
+	border:none;
+	background:none;
+	position:absolute;
+}
 
 .mysearchlist{
 	color:black;
@@ -171,14 +189,9 @@ img.imgSearch{
 	font-size: 200%;
 }
 
-#divInputName{
-	margin-left: 0%;
-}
-
 .mymap{
 	margin-left: 10%;
 	margin-right: 10%;
-
 	height:100%;
 	opacity:0.5;
 }
@@ -205,6 +218,41 @@ img.imgSearch{
 .label-file:hover {
     background-color: #722040;
 }
+
+#divModalHours{
+	margin-top:2%;
+	margin-bottom:2%;
+}
+
+#divInputName{
+	margin-left: 0%;
+}
+
+#inputMap{
+	text-align:center;
+	max-width:100%;
+}
+
+#divRowMap{
+	margin-left:0%;
+	margin-right: 0%;
+	margin-bottom:5%;
+}
+
+#myspin{
+	display:none;
+	position:absolute;
+	z-index:1000000;
+	margin-left:45%;
+	margin-top:10%;
+}
+
+#buttonDeleteDish{
+	vertical-align:middle;
+	border:none;
+	background:none;
+}
+
 
 @media (max-width: 575.98px) {
 	html{

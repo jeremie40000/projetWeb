@@ -9,7 +9,6 @@
 <div class="container mypersinfoform mycard">
   <div class="row">
     <div class="col-md-10  contentForm">
-
       <form method="post" action="{{url("/recordDish/$menu")}}" enctype="multipart/form-data">
         @csrf
       <!--Name Field-->
@@ -79,7 +78,6 @@
 </div>
 
 <script>
-
   function updateLabel(e){
     var index = e.lastIndexOf("\\");
     var s = e.substring(index+1, e.length);

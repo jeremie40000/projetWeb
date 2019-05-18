@@ -12,6 +12,7 @@
       <h2>---Informations Personnelles---</h2>
     </div>
   </div>
+  <!-- Button to change personal infos -->
   <div class="row">
     <div class="col-sm-12 col-12 text-center"   style="padding-bottom:2%;">
       <button class="btn btn-primary" type="button" onclick="modifyClicked()">Modifier Informations Personnelles</button>
@@ -39,89 +40,89 @@
     <div class="offset-1 offset-md-0 col-10 col-md-8  text-center  listInfoPers mycard">
       <div class="row h-100">
         <div class="col-sm-12 my-auto">
-
-      <!--Name Field-->
-      <div class="row">
-          <div class="col-sm-12 col-12">
-            <div class="row">
-              <div class="col-sm-4 col-4 text-right">
-                <h4>Nom :</h4>
+          <!--Name Field-->
+          <div class="row">
+              <div class="col-sm-12 col-12">
+                <div class="row">
+                  <div class="col-sm-4 col-4 text-right">
+                    <h4>Nom :</h4>
+                  </div>
+                  <div class=" col-sm-8 col-8">
+                    <h4>{{$user->name}}</h4>
+                  </div>
+                </div>
               </div>
-              <div class=" col-sm-8 col-8">
-                <h4>{{$user->name}}</h4>
-              </div>
-            </div>
           </div>
-      </div>
-      <!--First Name Field-->
-      <div class="row">
-          <div class="col-sm-12 col-12">
-            <div class="row">
-              <div class="col-sm-4 col-4 text-right">
-                <h4>Prénom : </h4>
+          <!--First Name Field-->
+          <div class="row">
+              <div class="col-sm-12 col-12">
+                <div class="row">
+                  <div class="col-sm-4 col-4 text-right">
+                    <h4>Prénom : </h4>
+                  </div>
+                  <div class="col-sm-8 col-8">
+                    <h4>{{$user->firstname}}</h4>
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-8 col-8">
-                <h4>{{$user->firstname}}</h4>
-              </div>
-            </div>
           </div>
-      </div>
-      <!--Mobile Field-->
-      <div class="row">
-          <div class="col-sm-12 col-12">
-            <div class="row">
-              <div class="col-sm-4 col-4 text-right">
-                <h4>Mobile : </h4>
+          <!--Mobile Field-->
+          <div class="row">
+              <div class="col-sm-12 col-12">
+                <div class="row">
+                  <div class="col-sm-4 col-4 text-right">
+                    <h4>Mobile : </h4>
+                  </div>
+                  <div class="col-sm-8 col-8">
+                    <h4>{{$user->mobile}}</h4>
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-8 col-8">
-                <h4>{{$user->mobile}}</h4>
-              </div>
-            </div>
           </div>
-      </div>
-      <!--Adresse Field-->
-      <div class="row">
-          <div class="col-sm-12 col-12">
-            <div class="row">
-              <div class="col-sm-4 col-4 text-right">
-                <h4>Adresse : </h4>
+          <!--Adresse Field-->
+          <div class="row">
+              <div class="col-sm-12 col-12">
+                <div class="row">
+                  <div class="col-sm-4 col-4 text-right">
+                    <h4>Adresse : </h4>
+                  </div>
+                  <div class="col-sm-8 col-8">
+                    <h4>{{$user->addr}}</h4>
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-8 col-8">
-                <h4>{{$user->addr}}</h4>
-              </div>
-            </div>
           </div>
-      </div>
-      <!--Postal Code Field-->
-      <div class="row">
-          <div class="col-sm-12 col-12">
-            <div class="row">
-              <div class="col-sm-4 col-4 text-right">
-                <h4>Code Postal : </h4>
+          <!--Postal Code Field-->
+          <div class="row">
+              <div class="col-sm-12 col-12">
+                <div class="row">
+                  <div class="col-sm-4 col-4 text-right">
+                    <h4>Code Postal : </h4>
+                  </div>
+                  <div class="col-sm-8 col-8">
+                    <h4>{{$user->postalcode}}</h4>
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-8 col-8">
-                <h4>{{$user->postalcode}}</h4>
-              </div>
-            </div>
           </div>
-      </div>
-      <!--City Field-->
-      <div class="row">
-          <div class="col-sm-12 col-12">
-            <div class="row">
-              <div class="col-sm-4 col-4 text-right">
-                <h4>Ville : </h4>
+          <!--City Field-->
+          <div class="row">
+              <div class="col-sm-12 col-12">
+                <div class="row">
+                  <div class="col-sm-4 col-4 text-right">
+                    <h4>Ville : </h4>
+                  </div>
+                  <div class="col-sm-8 col-8">
+                    <h4>{{$user->city}}</h4>
+                  </div>
+                </div>
               </div>
-              <div class="col-sm-8 col-8">
-                <h4>{{$user->city}}</h4>
-              </div>
-            </div>
           </div>
-      </div>
     </div>
     </div>
     </div>
   </div>
+  <!-- Button to delete the account -->
   <div class="row">
     <div class="col-sm-12 col-12 text-center"   style="padding-top:2%;">
       <form id="logout-form" action="{{url('/deleteAccount')}}" method="POST">
@@ -142,15 +143,17 @@
     </div>
   </div>
 </div>
+<!-- List of shops -->
 <div class="container">
   <div class="row">
     <div class="col-md-12 col-sm-12 col-12">
       <ul class="list-group"  style="margin-bottom: 10%;">
         @foreach ($shops as $shop)
+        <!-- One shop card -->
         <div class="row" style="margin-bottom: 2%;">
         <div class="offset-sm-2 offset-2 col-sm-8 col-8">
           <button type="button" id="{{$shop->siret}}"  onclick="red({{$shop->siret}})" class="list-group-item btn mysearchlist mycard" >
-            <div class="container" style="margin:0%;padding:0%;width:100%;height:100%;">
+            <div class="container noBoundsContainer">
               <div class="row" class="">
                 <div class="col-md-4 col-sm-12 col-12" style="width:100%;">
                   <img class="img-fluid rounded float-left" src="{{$shop->profilepicture}}" style="height:100%; width:100%;">
@@ -158,24 +161,23 @@
                 <div class="col-md-8 col-sm-12 col-12">
                   <div class="row">
                     <div class="col-md-12 col-sm-12 col-12 text-center">
-                      <span class="badge-primary mybadgename"><h4 class="my-auto" style="height:100%"><?php echo $shop->name;?></h4></span>
+                      <span class="badge-primary mybadgename"><h4 class="my-auto" style="height:100%">{{$shop->name}}</h4></span>
 
                     </div>
                   </div>
                   <div class="row">
                     <div class="col text-center">
-                      <?php echo $shop->addr;?>
+                      {{$shop->addr}}
                     </div>
                   </div>
                   <div class="row">
                     <div class="col text-center">
-                      <?php echo $shop->phone;?>
+                      {{$shop->phone}}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </button>
           </div>
           <div class="col-md-2 col-sm-2 col-2 my-auto">
@@ -183,7 +185,7 @@
             @method('DELETE')
             @csrf
               <input type="text" style="display:none" value="{{$shop->siret}}" name="inputSiret">
-              <button type="submit" style="border:none;background:none;position:absolute;"  style="vertical-align:middle;"><img class="img-fluid" src="/images/delete.png"></button>
+              <button type="submit" class="deleteNoBack"><img class="img-fluid" src="/images/delete.png"></button>
           </form>
         </div>
       </div>
