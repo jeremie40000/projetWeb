@@ -183,11 +183,11 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-6">
-                        <input type="text" name="inputName" id="inputName"></input>
+                    <div class="col-md-6" >
+                        <input type="text" name="inputName" id="inputName" style="width:80%;"></input>
                     </div>
-                    <div class="col-md-6">
-                        <input type="number"  name="inputPrice" id="inputPrice"></input>
+                    <div class="col-md-6" >
+                        <input type="number"  name="inputPrice" id="inputPrice" style="width:80%;"></input>
                     </div>
                   </div>
                   <div class="row" style="padding-top:5%;">
