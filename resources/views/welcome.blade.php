@@ -15,7 +15,7 @@
           <input type="text" name="inputMap" id="inputMap" placeholder="Ville" style="text-align:center;max-width:100%;"/>
         </div>
         <div class="spinner-border" style="display:none;position:absolute;z-index:1000000;margin-left:45%;margin-top:10%;" id="myspin"></div>
-        <div name="mapid" id="mapid" class="mycard" style="margin-left: 10%; margin-right: 10%;height:100%;opacity:0.5;"></div>
+        <div name="mapid" id="mapid" class="mycard mymap"></div>
       </div>
     </div>
     <div class="row">
@@ -47,6 +47,7 @@
     for (var i = 0; i < ar.length; i++){
       var name = ar[i].name;
       var city = ar[i].city;
+
 
       listNames.push(name);
       listCities.push(city);

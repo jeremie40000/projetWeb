@@ -1,6 +1,7 @@
 @extends('layouts.layoutWelcome')
 
 @section('titleWelcome')
+
 <title>TrouveTonResto</title>
 
 @endsection
@@ -18,7 +19,7 @@
           <div class="col-sm-12">
             <div class="row">
               <div class="col-sm-4">
-                <h3>Nom :</h3>
+                <h3 class="labelModifyInfo" >Nom :</h3>
               </div>
               <div class="col-sm-5">
                 <div class="mdc-text-field ">
@@ -33,7 +34,7 @@
           <div class="col-sm-12">
             <div class="row">
               <div class="col-sm-4">
-                <h3>Prénom : </h3>
+                <h3 class="labelModifyInfo">Prénom : </h3>
               </div>
               <div class="col-sm-5">
                 <div class="mdc-text-field ">
@@ -48,7 +49,7 @@
           <div class="col-sm-12">
             <div class="row">
               <div class="col-sm-4">
-                <h3>Mobile : </h3>
+                <h3 class="labelModifyInfo">Mobile : </h3>
               </div>
               <div class="col-sm-5">
                 <div class="mdc-text-field ">
@@ -63,7 +64,7 @@
           <div class="col-sm-12">
             <div class="row">
               <div class="col-sm-4">
-                <h3>Adresse : </h3>
+                <h3 class="labelModifyInfo">Adresse : </h3>
               </div>
               <div class="col-sm-5">
                 <div class="mdc-text-field ">
@@ -78,7 +79,7 @@
           <div class="col-sm-12">
             <div class="row">
               <div class="col-sm-4">
-                <h3>Code Postal : </h3>
+                <h3 class="labelModifyInfo">Code Postal : </h3>
               </div>
               <div class="col-sm-5">
                 <div class="mdc-text-field ">
@@ -93,7 +94,7 @@
           <div class="col-sm-12">
             <div class="row">
               <div class="col-sm-4">
-                <h3>Ville : </h3>
+                <h3 class="labelModifyInfo">Ville : </h3>
               </div>
               <div class="col-sm-5">
                 <div class="mdc-text-field ">

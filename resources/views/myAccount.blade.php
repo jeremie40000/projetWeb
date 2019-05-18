@@ -30,7 +30,7 @@
           <form action="{{url('/uploadprofilepicture')}}" method="post" enctype="multipart/form-data">
             @method('PUT')
             @csrf
-            <label for="uploadpp" class="label-file">Changer image</label>
+            <label for="uploadpp" class="label-file " style="width:50%;"><i class="material-icons iconFile" >cloud_upload</i><span id="spanPicture">Ajouter une photo</span></label>
             <input name ="uploadpp" id="uploadpp" type="file" class="mycard" onchange="form.submit()" style="display:none;"></input>
           </form>
         </div>

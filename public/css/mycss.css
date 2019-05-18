@@ -34,6 +34,12 @@ body{
   font-family: 'Playfair Display', serif;
 }
 
+.labelModifyInfo{
+	position: absolute;
+	bottom:0px;
+	right:0px;
+}
+
 .homebut{
 	background:url('/images/homebutton.png');
 	width: 35%;
@@ -139,20 +145,22 @@ img.imgSearch{
 	border-style: solid;
 }
 
+
 .myDishDetails{
-display: none;
-position: absolute;
-z-index:10;
-background-color: white;
-border-width: 1px;
-border-style: solid;
-margin-top: -3%;
-margin-left: -50%;
-width:60%;
+	display: none;
+	position: absolute;
+	z-index:10;
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+	margin-top: -3%;
+	margin-left: -50%;
+	width:60%;
 }
 
 .mypersinfoform{
-	padding: 5%;
+	padding: 1%;
+	margin-bottom: 10%;
 }
 
 .contentForm{
@@ -167,6 +175,36 @@ width:60%;
 	margin-left: 0%;
 }
 
+.mymap{
+	margin-left: 10%;
+	margin-right: 10%;
+
+	height:100%;
+	opacity:0.5;
+}
+
+.myInputMap{
+	margin-left: 37.5%;
+	width:20%;
+	position:absolute;
+	z-index:1000000;
+}
+
+.iconFile{
+	vertical-align:middle;
+	margin-right:2%;
+}
+
+.label-file {
+
+    cursor: pointer;
+		color: #f1e5e6;
+    background-color: #d3394c;
+
+}
+.label-file:hover {
+    background-color: #722040;
+}
 
 @media (max-width: 575.98px) {
 	html{
@@ -178,11 +216,33 @@ width:60%;
 	.contentForm{
 		text-align: center;
 	}
+	.custom-select{
+		width:30%;
+	}
+	.label-file {
+			width: 50%;
+	}
 	.mybut{
 		margin-top: 0.5%;
 		width: 50%;
 		margin-left: 25%;
 		margin-right: 25%;
+	}
+	.mysearchbut{
+		width:70%;
+		margin-left: 15%;
+		margin-top: 2%;
+	}
+	.mymap{
+		margin-left: 0%;
+		margin-right: 0%;
+	}
+	.labelModifyInfo{
+		position:relative;
+	}
+	.inputPers{
+		height:40% ! important;
+		margin-bottom:5%;
 	}
 }
 
@@ -197,27 +257,18 @@ width:60%;
 		margin-top: 0.5%;
 		width: 50%;
 		margin-left: 25%;
-		margin-right: 25%;
+		margin-right: 25%;var name = ar[i].name;
+      var city = ar[i].city;
 	}
 	#divInputName{
 		text-align: center;
 	}
+	.mymap{
+		margin-left: 0%;
+		margin-right: 0%;
+	}
 }
 
-.myInputMap{
-	margin-left: 37.5%;
-	width:20%;
-	position:absolute;
-	z-index:1000000;
-}
-
-// on personnalise le label comme on veut
-.label-file {
-    cursor: pointer;
-}
-.label-file:hover {
-    color: #25a5c4;
-}
 
 
 @media (min-width: 767.98px) {
@@ -235,6 +286,10 @@ width:60%;
 	}
 	#divInputName{
 		text-align: center;
+	}
+	.mymap{
+		margin-left: 10%;
+		margin-right: 10%;
 	}
 }
 @media (min-width: 1020px) {-left

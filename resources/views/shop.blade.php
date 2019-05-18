@@ -53,7 +53,7 @@
       <div class="col-md-12 text-center" style="margin-top:2%;">
         <form action="{{url("/addimageshop/$paramShop->siret")}}" method="post" enctype="multipart/form-data">
           @csrf
-          <label for="addimage" class="label-file">Ajouter une image</label>
+          <label for="addimage" class="label-file" style="width:20%;"><i class="material-icons iconFile" >cloud_upload</i><span id="spanPicture">Ajouter une photo</span></label>
           <input name ="addimage" id="addimage" type="file" class="mycard" onchange="form.submit()" style="display:none;"></input>
         </form>
       </div>
