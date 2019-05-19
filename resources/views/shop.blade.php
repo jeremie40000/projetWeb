@@ -18,7 +18,7 @@
                   <div class="col-4">
                     <img src="{{$paramImages[0]->src}}" class="img-fluid rounded" >
                   </div>
-                </div>';
+                </div>
                 @for ($i = 1; $i < count($paramImages); $i++)
                 <div class="carousel-item ">
                   <div class="col-4">

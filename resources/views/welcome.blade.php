@@ -47,7 +47,7 @@
     var listNames=[];
     var listCities=[];
     //Map instance
-    var mymap = L.map('mapid').setView([43.6, 4], 13);
+    var mymap = L.map('mapid').setView([46, 5], 6);
     //Map bacground layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 15}).addTo(mymap);
     //decoding names and cities of shops for autocompletion
@@ -89,7 +89,7 @@
                 marker.bindPopup(content);
                 //centering view on displayed shops
                 if(i==0){//we choose the first element
-                  mymap.setView([lat, long], 13);
+                  mymap.setView([lat, long], 10);
                 }
               }
             }
