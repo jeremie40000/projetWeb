@@ -37,7 +37,7 @@ Route::delete('/deleteAccount', 'DeleteAccountController@index');
 Route::delete('/deleteShop', 'DeleteShopController@index');
 Route::delete('/deleteHours', 'DeleteHoursController@index');
 Route::post('/recordDish/{param}', 'RecordDishController@index');
-//Route::post('create', 'UpdateDBController@index');
+
 
 
 
