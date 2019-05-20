@@ -15,6 +15,7 @@ class ResearchByCityController extends Controller
     	   $req = "select * from shop where city='$param'";
       }
     	$shops = DB::select($req);*/
+      $param = strtolower($param);
       $shops = DB::table('shop')->where('city', $param)->paginate(10);
     	return view('research', ["shops"=>$shops]);
     }
